@@ -14,7 +14,13 @@ class CreateStudentsQuestionnaireFormsTable extends Migration
     public function up()
     {
         Schema::create('students_questionnaire_forms', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyIncrements('questionnaire_form_reference_no');
+            $table->unsignedTinyInteger('student_no');
+            $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
+            $table->unsignedTinyInteger('appointment_reference_no');
+            $table->foreign('appointment_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');
+            $table->text('problem_description');
+            $table->date('start_date_of_noticed_problems');
             $table->timestamps();
         });
     }

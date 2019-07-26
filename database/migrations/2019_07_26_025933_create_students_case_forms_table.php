@@ -14,7 +14,14 @@ class CreateStudentsCaseFormsTable extends Migration
     public function up()
     {
         Schema::create('students_case_forms', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyIncrements('case_reference_no');
+            $table->unsignedTinyInteger('appointment_bookings_reference_no');
+            $table->foreign('appointment_bookings_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');
+            $table->unsignedTinyInteger('questionnaire_reference_no');
+            $table->foreign('questionnaire_reference_no')->references('questionnaire_form_reference_no')->on('students_questionnaire_forms');
+            $table->unsignedTinyInteger('employment_no');
+            $table->unsignedTinyInteger('student_no');
+            $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
     }

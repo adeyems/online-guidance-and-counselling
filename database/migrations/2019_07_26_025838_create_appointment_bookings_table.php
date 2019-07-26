@@ -14,7 +14,10 @@ class CreateAppointmentBookingsTable extends Migration
     public function up()
     {
         Schema::create('appointment_bookings', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyIncrements('appointment_bookings_reference_no');
+            $table->unsignedTinyInteger('student_no');
+            $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
+            $table->string('subject_of_booking');
             $table->timestamps();
         });
     }
@@ -26,6 +29,10 @@ class CreateAppointmentBookingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appointment_bookings');
+        Schema::table('appointment_bookings', function (Blueprint $table) {
+            $table->dropForeign('appointment_bookings_student_no');
+            $table->dropIndex('appointment_bookings_student_no_index');
+            $table->dropColumn('student_no');
+        });
     }
 }

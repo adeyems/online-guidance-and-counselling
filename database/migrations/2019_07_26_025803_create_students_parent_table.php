@@ -14,7 +14,15 @@ class CreateStudentsParentTable extends Migration
     public function up()
     {
         Schema::create('students_parent', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->tinyIncrements('parent_no');
+            $table->unsignedTinyInteger('student_no');
+            $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('mobile_no');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->mediumText('address');
             $table->timestamps();
         });
     }
@@ -26,6 +34,10 @@ class CreateStudentsParentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students_parent');
+        Schema::table('students_parent', function (Blueprint $table) {
+            $table->dropForeign('students_parent_student_no');
+            $table->dropIndex('students_parent_student_no_index');
+            $table->dropColumn('student_no');
+        });
     }
 }
