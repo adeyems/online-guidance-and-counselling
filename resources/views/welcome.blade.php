@@ -25,19 +25,9 @@
             }
 
             .flex-center {
-                align-items: center;
                 display: flex;
                 justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+                padding-top: 100px;
             }
 
             .content {
@@ -45,55 +35,48 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 35px;
             }
 
             .links > a {
                 color: #636b6f;
-                padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                padding-right: 25px;
+            }
+            a:hover{
+                color: #5b5b5b;
+                font-size: 15px;
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
         </style>
     </head>
     <body>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ asset('images/queen _ede .jpg') }}" style="max-width: 200px; max-height: 150px" alt="Queen Ede Secondary School">
+        </div>
+        <div class="col-md-8 title m-b-md">
+            Secured Guidance, Counselling and Monitoring Web Application
+        </div>
+    </div>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="title" style="padding-bottom: 50px">Login Screen</div>
+                <div class="links title m-b-md">
+                    <a href="{{ route('login.student') }}" class="btn btn-primary">Student</a>
+                    <a href="{{ route('login.parent') }}" class="btn-primary">Parent</a>
+                    <a href="{{ url('/login/teacher') }}" class="btn-primary">Teacher</a>
+                    <a href="{{ url('/login/counsellor') }}" class="btn-primary">Guidance and Counsellor</a>
                 </div>
             </div>
         </div>
+    </div>
     </body>
 </html>
