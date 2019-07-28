@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    if (session()->has('user')) {
+        return redirect('home');
+    }
     return view('welcome');
 });
 
@@ -29,4 +32,16 @@ Route::get('/login/teacher', 'Auth\LoginController@teacher');
 Route::post('/login/studentLogin', 'Auth\LoginController@studentLogin')->name('studentLogin');
 Route::post('/login/parentLogin', 'Auth\LoginController@parentLogin')->name('parentLogin');;
 Route::post('/login/teacherLogin', 'Auth\LoginController@teacherLogin')->name('teacherLogin');;
-Route::post('/login/counsellorLogin', 'Auth\LoginController@counsellorLogin')->name('counsellorLogin');;
+Route::post('/login/counsellorLogin', 'Auth\LoginController@counsellorLogin')->name('counsellorLogin');
+
+//Register Page Routes
+Route::get('/register/student', 'Auth\RegisterController@student')->name('studentRegister');
+Route::get('/register/parent', 'Auth\RegisterController@studentParent')->name('parentRegister');
+
+
+//Register Page Routes
+Route::post('/register/createStudent', 'Auth\RegisterController@createStudent')->name('createStudent');
+Route::post('/register/createParent', 'Auth\RegisterController@createParent')->name('createParent');
+
+//Logout
+Route::get('/logout', 'Auth\LogoutController@index')->name('logout');

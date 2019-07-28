@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Symfony\Component\HttpFoundation\Request;
 
-class Teacher extends Model {
+class Counsellor extends Model
+{
     use Notifiable;
 
     /**
@@ -14,20 +15,17 @@ class Teacher extends Model {
      *
      * @var array
      */
-    protected $table = 'teachers';
+    protected $table = 'guidance_counsellors';
     protected $primaryKey = 'employment_no';
 
     protected $fillable = [
-        'name', 'surname', 'mobile_no', 'address', 'position', 'password', 'level', 'email',
+        'name', 'surname', 'mobile_no', 'address', 'position', 'password', 'email',
     ];
 
     public static function login(Request $request) {
 
-        return Teacher::where('email', $request->get('email'))->where('password', sha1($request->get('password')))->first();
+        return Counsellor::where('email', $request->get('email'))->where('password', sha1($request->get('password')))->first();
 
     }
 
-    public static function getTeachersName() {
-        return Teacher::select('name', 'surname')->get();
-    }
 }

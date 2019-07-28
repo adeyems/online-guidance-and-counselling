@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Dashboard</title>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -13,8 +17,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    Welcome {{ session()->get('user')[0]["name"]}} {{ session()->get('user')[0]["surname"]}}. You are logged in as a  {{  session()->get('role')[0] }}.
                 </div>
             </div>
         </div>
