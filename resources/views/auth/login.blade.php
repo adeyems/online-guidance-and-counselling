@@ -17,6 +17,8 @@
                         @isset( $error )
                             <div class="alert alert-danger text-center">{{ $error }}</div>
                         @endisset
+
+                        @if($user  == 'Parent')
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -30,6 +32,7 @@
                                 @enderror
                             </div>
                         </div>
+                        @else
 
                         <div class="form-group row">
                             <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Student No') }}</label>
@@ -44,7 +47,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        @endif
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

@@ -42,7 +42,7 @@ class Student extends Model
 
     public static function login(Request $request) {
 
-        return Student::where('email', $request->get('email'))->where('password', sha1($request->get('password')))->first();
+        return Student::where('student_no', $request->get('student_no'))->where('password', sha1($request->get('password')))->first();
 
     }
 
