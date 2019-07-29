@@ -19,7 +19,7 @@ class Student extends Model
     protected $primaryKey = 'student_no';
 
     protected $fillable = [
-        'name', 'surname', 'mobile_no', 'address', 'date_of_birth', 'class', 'password', 'class_teacher_name', 'class_teacher_surname',
+        'name', 'surname', 'student_no', 'mobile_no', 'address', 'date_of_birth', 'class', 'password', 'class_teacher_name', 'class_teacher_surname',
     ];
 
     /**
@@ -50,7 +50,10 @@ class Student extends Model
         $student = new Student();
 
         $student->name = $request->name;
-        $student->email = $request->email ."ddeas";
+
+        
+        $student->email = $request->email;
+        $student->email = $request->student_no;
         $student->surname = $request->surname;
         $student->mobile_no = $request->mobile_no;
         $student->address = $request->address;
