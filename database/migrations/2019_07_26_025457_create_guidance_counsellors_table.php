@@ -14,14 +14,16 @@ class CreateGuidanceCounsellorsTable extends Migration
     public function up()
     {
         Schema::create('guidance_counsellors', function (Blueprint $table) {
-            $table->tinyIncrements('employment_no');
+            $table->tinyIncrements('id');
+            $table->string('employment_no')->unique();
             $table->string('name');
             $table->string('surname');
+            $table->string('name');
             $table->mediumText('address');
             $table->string('mobile_no');
             $table->string('email')->unique();
-            $table->string('position');
-            $table->unsignedTinyInteger('level_of_guidance_and_counselling');
+            $table->enum('position', ['Grad Senior Master', 'Principal']);
+            $table->enum('level_of_guidance_and_counselling', ['12', '13', '14', '15']);
             $table->string('password');
             $table->timestamps();
         });

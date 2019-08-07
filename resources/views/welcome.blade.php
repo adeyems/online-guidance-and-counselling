@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Dashboard</title>
+    <title>Welcome</title>
 @endsection
 
 @section('content')

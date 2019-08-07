@@ -74,7 +74,8 @@ class LoginController extends Controller
         if ($teacher){
             session()->push('user', $teacher);
             session()->push('role', 'Teacher');
-            return redirect('/home');
+            return redirect('/home/teacher')->with('status', "Welcome $teacher->name  $teacher->surname");
+
         }
 
         return view('auth.login', ['error' => 'Login unsuccessful. Check your login credential', 'user' => 'Teacher', 'login' => 'teacherLogin', 'register' => 'teacherRegister']);
@@ -87,7 +88,8 @@ class LoginController extends Controller
         if ($student){
             session()->push('user', $student);
             session()->push('role', 'Student');
-            return redirect('/home');
+            return redirect('/home/student')->with('status', "Welcome $student->name  $student->surname");
+
         }
 
         return view('auth.login', ['error' => 'Login unsuccessful. Check your login credential', 'user' => 'Student', 'login' => 'studentLogin', 'register' => 'studentRegister']);
@@ -101,7 +103,7 @@ class LoginController extends Controller
         if ($parent){
             session()->push('user', $parent);
             session()->push('role', 'Parent');
-            return redirect('/home');
+            return redirect('/home/parent')->with('status', "Welcome $parent->name  $parent->surname");
         }
 
         return view('auth.login', ['error' => 'Login unsuccessful. Check your login credential', 'user' => 'Parent', 'login' => 'parentLogin', 'register' => 'parentRegister']);
@@ -115,7 +117,7 @@ class LoginController extends Controller
         if ($counsellor){
             session()->push('user', $counsellor);
             session()->push('role', 'Counsellor');
-            return redirect('/home');
+            return redirect('/home/counsellor')->with('status', "Welcome $counsellor->name  $counsellor->surname");
         }
 
         return view('auth.login', ['error' => 'Login unsuccessful. Check your login credential', 'user' => 'Counsellor', 'login' => 'counsellorLogin', 'register' => 'counsellorRegister']);

@@ -15,7 +15,7 @@ class CreateStudentsQuestionnaireFormsTable extends Migration
     {
         Schema::create('students_questionnaire_forms', function (Blueprint $table) {
             $table->tinyIncrements('questionnaire_form_reference_no');
-            $table->unsignedTinyInteger('student_no');
+            $table->string('student_no');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->unsignedTinyInteger('appointment_reference_no');
             $table->foreign('appointment_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');

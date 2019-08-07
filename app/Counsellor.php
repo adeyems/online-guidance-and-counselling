@@ -24,7 +24,7 @@ class Counsellor extends Model
 
     public static function login(Request $request) {
 
-        return Counsellor::where('email', $request->get('email'))->where('password', sha1($request->get('password')))->first();
+        return Counsellor::where('employment_no', $request->get('employment_no'))->where('password', sha1($request->get('password')))->first();
 
     }
 

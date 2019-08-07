@@ -105,7 +105,6 @@ class RegisterController extends Controller
             $request->session()->flash('status', 'Your account was created successfully!');
             return redirect('/login/parent');
         }
-
         else{
             return view('auth.register.student')->with('error',  "Sorry, An error occurred");
         }

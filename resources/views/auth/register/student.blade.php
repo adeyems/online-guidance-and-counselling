@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Student Registration</title>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -12,7 +16,7 @@
                             @csrf
 
                             <div class="form-group row" id="signup-form">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Student No') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="student_no" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -69,9 +73,18 @@
 
                             <div class="form-group row">
                                 <label for="class" class="col-md-4 col-form-label text-md-right">{{ __('Class') }}</label>
-
                                 <div class="col-md-6">
-                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="class" value="{{ old('class') }}" required autocomplete="class" autofocus>
+                                    <select id="class" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class"  required>
+                                        <option value="">Select Class</option>
+                                        <option value="JSS1">JSS1</option>
+                                        <option value="JSS2">JSS2</option>
+                                        <option value="JSS3">JSS3</option>
+                                        <option value="SSS1">SSS1</option>
+                                        <option value="SSS2">SSS2</option>
+                                        <option value="SSS3">SSS3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
 
                                     @error('class')
                                     <span class="invalid-feedback" role="alert">
@@ -110,7 +123,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea  class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address"> {{ old('address') }}</textarea>
@@ -158,7 +171,7 @@
 
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Retype Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -166,7 +179,7 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-6">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
                                     </button>

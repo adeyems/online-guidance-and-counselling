@@ -1,21 +1,27 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Parent Registration</title>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Parent Registration') }}</div>
-
+                    @isset( $error )
+                        <div class="alert alert-success text-center">{{ $error }}</div>
+                    @endisset
                     <div class="card-body">
                         <form method="POST" action="{{ route('createParent') }}">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Student No') }}</label>
+                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="class" type="number" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}" required autocomplete="class" autofocus>
+                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}" required autocomplete="class" autofocus>
 
                                     @error('student_no')
                                     <span class="invalid-feedback" role="alert">
@@ -68,7 +74,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea  class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address"> {{ old('address') }}</textarea>
@@ -81,8 +87,8 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email (UserName)') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -108,9 +114,8 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Re-type Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -118,7 +123,7 @@
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-6 offset-md-6">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Register') }}
                                     </button>

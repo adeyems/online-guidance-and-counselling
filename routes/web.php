@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    if (session()->has('user')) {
-        return redirect('home');
-    }
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/student', 'HomeController@student');
+Route::get('/home/parent', 'HomeController@parent');
+Route::get('/home/teacher', 'HomeController@teacher');
+Route::get('/home/counsellor', 'HomeController@counsellor');
 
 //Login Page Routes
 Route::get('/login/parent', 'Auth\LoginController@parent')->name('login.parent');
@@ -45,3 +41,21 @@ Route::post('/register/createParent', 'Auth\RegisterController@createParent')->n
 
 //Logout
 Route::get('/logout', 'Auth\LogoutController@index')->name('logout');
+
+Route::get('/password/email', 'Auth\ResetPasswordController@viewResetEmail')->name('reset-email');
+
+Route::get('/password/reset', 'Auth\ResetPasswordController@viewResetPassword')->name('reset-password');
+
+Route::post('/password/update', 'Auth\ResetPasswordController@UpdatePassword')->name('password.update');
+
+Route::post('/password/reset', 'Auth\ResetPasswordController@sendResetEmail')->name('send-reset-email');
+
+Route::get('/appointment/booking', 'AppointmentBookingController@index')->name('appointment.book');
+
+Route::post('/appointment/create', 'AppointmentBookingController@create')->name('appointment.create');
+
+Route::get('/questionnaire', 'QuestionnaireController@index')->name('questionnaire');
+
+Route::post('/questionnaire/create', 'QuestionnaireController@create')->name('questionnaire.create');
+
+Route::get('/questionnaire/view', 'QuestionnaireController@view')->name('questionnaire.view');

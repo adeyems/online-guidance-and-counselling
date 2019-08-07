@@ -34,24 +34,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="/"> <img src="{{ asset('images/queen _ede .jpg') }}" style="max-width: 150px; max-height: 100px" alt="Queen Ede Secondary School"></a>
+                            <a href="/"> <img src="{{ asset('images/queen_ede.png') }}" style="max-width: 200px; max-height: 100px" alt="Queen Ede Secondary School"></a>
                         </li>
                         {{--<li class="nav-item">--}}
                             {{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
                         {{--</li>--}}
                     </ul>
-                        <div class="col-md-8 title m-b-md">
-                            Secured Guidance, Counselling and Monitoring Web Application
-                        </div>
+                    <div class="col-md-10 text-center" style="font-size: medium">
+                        ONLINE STUDENT MONITORING SYSTEM USING FINGERPRINT SCANNER
+                    </div>
                     <!-- Right Side Of Navbar -->
-                    @if(session()->has('user'))
+                    <?php if(session()->has('user')): ?>
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}">{{ __('Logout') }}</a>
-                            </li>
+                        <li class="nav-item">
+                            <a> <img src="<?php echo e(asset('images/user-alt.png')); ?>" style="max-width: 32px; max-height: 32px"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo e(route('logout')); ?>"><?php echo e(__('Logout')); ?></a>
+                        </li>
                     </ul>
-                    @endisset
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>

@@ -17,7 +17,7 @@ class CreateStudentsVideoCallRequestsTable extends Migration
             $table->tinyIncrements('request_reference_no');
             $table->unsignedTinyInteger('parent_no');
             $table->foreign('parent_no')->references('parent_no')->on('students_parent')->onDelete('cascade');
-            $table->unsignedTinyInteger('student_no');
+            $table->string('student_no');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->unsignedTinyInteger('case_reference_no');
             $table->foreign('case_reference_no')->references('case_reference_no')->on('students_case_forms');

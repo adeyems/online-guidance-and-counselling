@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Login</title>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -15,15 +19,19 @@
                         @csrf
 
                         @isset( $error )
-                            <div class="alert alert-danger text-center">{{ $error }}</div>
+                            <div class="alert alert-danger text-center alert-dismissible">{{ $error }}</div>
+                        @endisset
+
+                        @isset( $status )
+                            <div class="alert alert-success alert-dismissible text-center">{{ $status}}</div>
                         @endisset
 
                         @if($user  == 'Parent')
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus >
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('email') }}" required autocomplete="email" autofocus >
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -32,10 +40,10 @@
                                 @enderror
                             </div>
                         </div>
-                        @else
+                        @elseif($user  == 'Student')
 
                         <div class="form-group row">
-                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Student No') }}</label>
+                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                             <div class="col-md-6">
                                 <input id="" type="text" class="form-control @error('email') is-invalid @enderror" name="student_no" value="{{ old('email') }}" required autocomplete="email" autofocus >
@@ -47,6 +55,21 @@
                                 @enderror
                             </div>
                         </div>
+                        @else
+
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Employment Number') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="" type="text" class="form-control @error('email') is-invalid @enderror" name="employment_no" value="{{ old('email') }}" required autocomplete="email" autofocus >
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                         @endif
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -84,12 +107,10 @@
                                     {{ __('Login') }}
                                 </button><br>
 
-                                @if (Route::has('password.request'))
-                                    Forgot Your Password?
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                         {{ __('Click Here') }}
-                                    </a><br>
-                                @endif
+                                Forgot Your Password?
+                                <a class="btn btn-link" href="{{ route('reset-email') }}">
+                                     {{ __('Click Here') }}
+                                </a><br>
 
                                 @if( $user === 'Student' || $user === 'Parent')
                                     First Time User?

@@ -51,7 +51,8 @@ class Student extends Model
 
         $student->name = $request->name;
 
-        
+
+        $student->student_no = $request->student_no;
         $student->email = $request->email;
         $student->email = $request->student_no;
         $student->surname = $request->surname;
@@ -66,4 +67,9 @@ class Student extends Model
        return $student->save();
 
     }
+
+    public static function getByStudentNo(string $studentNo){
+        return Student::where('student_no', $studentNo)->first();
+    }
+
 }

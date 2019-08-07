@@ -43,8 +43,7 @@ class StudentParent extends Model
 
     public static function login(Request $request) {
 
-        return Teacher::where('email', $request->get('email'))->where('password', sha1($request->get('password')))->first();
-
+        return StudentParent::where('email', $request->get('username'))->where('password', sha1($request->get('password')))->first();
     }
 
     public static function create(Request $request){

@@ -15,7 +15,7 @@ class CreateStudentsParentTable extends Migration
     {
         Schema::create('students_parent', function (Blueprint $table) {
             $table->tinyIncrements('parent_no');
-            $table->unsignedTinyInteger('student_no');
+            $table->string('student_no');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->string('name');
             $table->string('surname');
