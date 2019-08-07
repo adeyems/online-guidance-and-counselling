@@ -50,11 +50,8 @@ class Student extends Model
         $student = new Student();
 
         $student->name = $request->name;
-
-
         $student->student_no = $request->student_no;
         $student->email = $request->email;
-        $student->email = $request->student_no;
         $student->surname = $request->surname;
         $student->mobile_no = $request->mobile_no;
         $student->address = $request->address;

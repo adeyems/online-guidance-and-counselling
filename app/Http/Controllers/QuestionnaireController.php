@@ -28,4 +28,10 @@ class QuestionnaireController extends Controller
         }
         return view('completed_questionnaire', ['questionnaires' => $questionnaires]);
     }
+
+    public function details(Request $request){
+        dd($request->input('id'));
+        $questionnaires = Questionnaire::getById(request()->get('id'));
+        return view('completed_questionnaire', ['questionnaires' => $questionnaires]);
+    }
 }

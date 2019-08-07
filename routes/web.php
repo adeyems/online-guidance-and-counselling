@@ -59,3 +59,5 @@ Route::get('/questionnaire', 'QuestionnaireController@index')->name('questionnai
 Route::post('/questionnaire/create', 'QuestionnaireController@create')->name('questionnaire.create');
 
 Route::get('/questionnaire/view', 'QuestionnaireController@view')->name('questionnaire.view');
+
+Route::get('/questionnaire/details/{id}', 'QuestionnaireController@details')->name('questionnaire.details');
