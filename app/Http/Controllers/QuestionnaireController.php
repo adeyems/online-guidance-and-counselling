@@ -24,8 +24,8 @@ class QuestionnaireController extends Controller
     public function view(){
         $questionnaires = Questionnaire::getAll();
         foreach ($questionnaires as $questionnaire){
-            $questionnaire->student = Student::getByStudentNo($questionnaire->student_no);
+            $questionnaire["student"] = Student::getByStudentNo($questionnaire->student_no);
         }
-        return view('completed_questionnaire', ['questionnaire' => $questionnaires]);
+        return view('completed_questionnaire', ['questionnaires' => $questionnaires]);
     }
 }

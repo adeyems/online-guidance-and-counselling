@@ -24,14 +24,14 @@
                         <tbody>
                         <tr>
                             @foreach($questionnaires as $questionnaire)
-                            <th scope="row"></th>
+                            <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $questionnaire["questionnaire_form_reference_no"]}}</td>
-                            <td>{{ date('h:i A') }}</td>
-                            <td>{{ $ques }}</td>
-                            <td>Click</td>
-                            <td>View</td>
-                            @endforeach
+                            <td> {{ $questionnaire["student"]["name"] }} </td>
+                            <td>{{ $questionnaire["student"]["name"] }} {{ $questionnaire["student"]["surname"] }}</td>
+                            <td><a href="/questionnaire/details/{{ $questionnaire["questionnaire_form_reference_no"]}}">Click</a></td>
+                            <td><a href="/questionnaire/details/{{ $questionnaire["questionnaire_form_reference_no"]}}">View</a></td>
                         </tr>
+                            @endforeach
                         </tbody>
                     </table>
 

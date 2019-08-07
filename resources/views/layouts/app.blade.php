@@ -41,7 +41,7 @@
                         {{--</li>--}}
                     </ul>
                     <div class="col-md-10 text-center" style="font-size: medium">
-                        ONLINE STUDENT MONITORING SYSTEM USING FINGERPRINT SCANNER
+                      SECURED GUIDANCE, COUNSELLING AND MONITORING WEB APPLICATION
                     </div>
                     <!-- Right Side Of Navbar -->
                     <?php if(session()->has('user')): ?>
