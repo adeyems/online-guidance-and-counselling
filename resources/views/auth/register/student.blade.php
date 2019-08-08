@@ -14,7 +14,26 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('createStudent') }}">
                             @csrf
+                            @if ($message = Session::get('status'))
 
+                                <div class="alert alert-success alert-block text-center">
+
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                    <strong class="text-center">{{ $message }}</strong>
+
+                                </div>
+                            @endif
+                            @if ($message = Session::get('error'))
+
+                                <div class="alert alert-danger alert-block text-center">
+
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                    <strong class="text-center">{{ $message }}</strong>
+
+                                </div>
+                            @endif
                             <div class="form-group row" id="signup-form">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 

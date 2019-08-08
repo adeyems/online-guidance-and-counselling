@@ -14,7 +14,7 @@ class CreateAppointmentBookingsTable extends Migration
     public function up()
     {
         Schema::create('appointment_bookings', function (Blueprint $table) {
-            $table->tinyIncrements('appointment_bookings_reference_no');
+            $table->string('appointment_bookings_reference_no')->unique();
             $table->string('student_no');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->string('subject_of_booking');

@@ -10,9 +10,26 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-center">{{ __('Parent Registration') }}</div>
-                    @isset( $error )
-                        <div class="alert alert-success text-center">{{ $error }}</div>
-                    @endisset
+                    @if ($message = Session::get('status'))
+
+                        <div class="alert alert-success alert-block text-center">
+
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+
+                            <strong class="text-center">{{ $message }}</strong>
+
+                        </div>
+                    @endif
+                    @if ($message = Session::get('error'))
+
+                        <div class="alert alert-danger alert-block text-center">
+
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+
+                            <strong class="text-center">{{ $message }}</strong>
+
+                        </div>
+                    @endif
                     <div class="card-body">
                         <form method="POST" action="{{ route('createParent') }}">
                             @csrf

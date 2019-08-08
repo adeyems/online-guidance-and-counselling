@@ -15,9 +15,9 @@ class CreateStudentsCaseFormsTable extends Migration
     {
         Schema::create('students_case_forms', function (Blueprint $table) {
             $table->tinyIncrements('case_reference_no');
-            $table->unsignedTinyInteger('appointment_bookings_reference_no');
+            $table->string('appointment_bookings_reference_no');
             $table->foreign('appointment_bookings_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');
-            $table->unsignedTinyInteger('questionnaire_reference_no');
+            $table->string('questionnaire_reference_no');
             $table->foreign('questionnaire_reference_no')->references('questionnaire_form_reference_no')->on('students_questionnaire_forms');
             $table->string('employment_no');
             $table->string('student_no');

@@ -18,17 +18,31 @@
                     <form method="POST" action="{{ route($login) }}">
                         @csrf
 
-                        @isset( $error )
-                            <div class="alert alert-danger text-center alert-dismissible">{{ $error }}</div>
-                        @endisset
+                        @if ($message = Session::get('status'))
 
-                        @isset( $status )
-                            <div class="alert alert-success alert-dismissible text-center">{{ $status}}</div>
-                        @endisset
+                            <div class="alert alert-success alert-block text-center">
+
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                <strong class="text-center">{{ $message }}</strong>
+
+                            </div>
+                        @endif
+
+                        @if ($message = Session::get('error'))
+
+                            <div class="alert alert-danger alert-block text-center">
+
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                <strong class="text-center">{{ $message }}</strong>
+
+                            </div>
+                        @endif
 
                         @if($user  == 'Parent')
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('email') }}" required autocomplete="email" autofocus >
