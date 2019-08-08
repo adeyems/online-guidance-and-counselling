@@ -22,14 +22,14 @@
                     <div class="card-header text-center">{{ __('Completed Questionnaire Form') }}</div>
                     <table class="table">
                         <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">SN</th>
-                            <th scope="col">Form Reference No.</th>
-                            <th scope="col">Student No</th>
-                            <th scope="col">Student Name and Surname</th>
-                            <th scope="col">View</th>
-                            <th scope="col">Create Case Form</th>
-                        </tr>
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Form Ref. No.</th>
+                                <th scope="col">Student No</th>
+                                <th scope="col">Student Name and Surname</th>
+                                <th scope="col">View</th>
+                                <th scope="col">Create Case Form</th>
+                            </tr>
                         </thead>
                         <tbody>
                         <tr>
@@ -39,7 +39,7 @@
                             <td> {{ $questionnaire["student"]["student_no"] }} </td>
                             <td>{{ $questionnaire["student"]["name"] }} {{ $questionnaire["student"]["surname"] }}</td>
                             <td><a href="/questionnaire/details/{{ $questionnaire["questionnaire_form_reference_no"]}}">View Details</a></td>
-                            <td><a href="/case-form/{{ $questionnaire["questionnaire_form_reference_no"]}}">Create</a></td>
+                            <td><a href="#">Create</a></td>
                         </tr>
                             @endforeach
                         </tbody>
