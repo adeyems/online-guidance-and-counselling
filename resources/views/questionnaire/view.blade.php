@@ -34,9 +34,9 @@
                         <tbody>
                         <tr>
                             @foreach($questionnaires as $questionnaire)
-                            <th scope="row">{{ $loop->iteration }}</th>
+                            <th scope="row">{{ sizeof($questionnaires) - $loop->index }}</th>
                             <td>QUE/0{{ $questionnaire["questionnaire_form_reference_no"]}}</td>
-                            <td> {{ $questionnaire["student"]["name"] }} </td>
+                            <td> {{ $questionnaire["student"]["student_no"] }} </td>
                             <td>{{ $questionnaire["student"]["name"] }} {{ $questionnaire["student"]["surname"] }}</td>
                             <td><a href="/questionnaire/details/{{ $questionnaire["questionnaire_form_reference_no"]}}">View Details</a></td>
                             <td><a href="/case-form/{{ $questionnaire["questionnaire_form_reference_no"]}}">Create</a></td>

@@ -35,11 +35,10 @@ class Questionnaire extends Model
         $questionnaire->start_date_of_noticed_problems = $request->start_date;
 
         return $questionnaire->save();
-
     }
 
     public static function getAll(){
-       return Questionnaire::all();
+       return Questionnaire::orderBy('created_at', "DESC")->get();
     }
 
     public static function getById(int $id){

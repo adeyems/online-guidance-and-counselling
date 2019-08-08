@@ -18,27 +18,13 @@
                     <form method="POST" action="{{ route($login) }}">
                         @csrf
 
-                        @if ($message = Session::get('status'))
+                        @isset( $error )
+                            <div class="alert alert-danger text-center alert-dismissible">{{ $error }}</div>
+                        @endisset
 
-                            <div class="alert alert-success alert-block text-center">
-
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-
-                                <strong class="text-center">{{ $message }}</strong>
-
-                            </div>
-                        @endif
-
-                        @if ($message = Session::get('error'))
-
-                            <div class="alert alert-danger alert-block text-center">
-
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-
-                                <strong class="text-center">{{ $message }}</strong>
-
-                            </div>
-                        @endif
+                        @isset( $status )
+                            <div class="alert alert-success alert-dismissible text-center">{{ $status}}</div>
+                        @endisset
 
                         @if($user  == 'Parent')
                         <div class="form-group row">
