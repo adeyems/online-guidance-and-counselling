@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('mobile_no');
             $table->mediumText('address');
             $table->date('date_of_birth');
-            $table->string('class');
+            $table->enum('class', ['Grade 8 Class 2', 'Grade 9 Class 1', 'Grade 9 Class 2']);
             $table->string('password');
             $table->string('email')->unique();
             $table->string('class_teacher_name');

@@ -18,6 +18,8 @@ class StudentParent extends Model
 
     protected $table = 'students_parent';
     protected $primaryKey = 'parent_no';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
         'password', 'name', 'surname', 'email', 'password', 'mobile_no', 'address', 'student_no',

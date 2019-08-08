@@ -76,12 +76,9 @@
                                 <div class="col-md-6">
                                     <select id="class" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class"  required>
                                         <option value="">Select Class</option>
-                                        <option value="JSS1">JSS1</option>
-                                        <option value="JSS2">JSS2</option>
-                                        <option value="JSS3">JSS3</option>
-                                        <option value="SSS1">SSS1</option>
-                                        <option value="SSS2">SSS2</option>
-                                        <option value="SSS3">SSS3</option>
+                                        <option value="Grade 8 Class 2">Grade 8 Class 2</option>
+                                        <option value="Grade 9 Class 1">Grade 9 Class 1</option>
+                                        <option value="Grade 9 Class 2">Grade 9 Class 2</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">

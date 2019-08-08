@@ -14,8 +14,6 @@ class Teacher extends Model {
      *
      * @var array
      */
-    protected $table = 'teachers';
-    protected $primaryKey = 'employment_no';
 
     protected $fillable = [
         'name', 'surname', 'mobile_no', 'address', 'position', 'password', 'level', 'email',

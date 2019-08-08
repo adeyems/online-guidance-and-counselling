@@ -14,19 +14,33 @@
                         <form method="POST" action="{{ route('questionnaire.create') }}">
                             @csrf
 
-                            @isset( $error )
-                                <div class="alert alert-success text-center">{{ $error }}</div>
-                            @endisset
+                            @if ($message = Session::get('error'))
 
-                            @isset( $status )
-                                <div class="alert alert-success text-center">{{ $status }}</div>
-                            @endisset
+                                <div class="alert alert-danger alert-block text-center">
+
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                    <strong class="text-center">{{ $message }}</strong>
+
+                                </div>
+                            @endif
+
+                            @if ($message = Session::get('status'))
+
+                                <div class="alert alert-success alert-block text-center">
+
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                    <strong class="text-center">{{ $message }}</strong>
+
+                                </div>
+                            @endif
 
                             <div class="form-group row">
                                 <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}" required autocomplete="class" autofocus>
+                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ $student_no }}" required autocomplete="class" autofocus>
 
                                     @error('student_no')
                                     <span class="invalid-feedback" role="alert">
@@ -49,7 +63,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <input id="" type="hidden"  value="1" class="form-control @error('mobile_no') is-invalid @enderror" name="appointment_reference">
+                                    <input id="" type="hidden"  value="1" class="form-control @error('mobile_no') is-invalid @enderror" required name="appointment_reference">
                                     @error('mobile_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -61,7 +75,7 @@
                                 <label for="enddate" class="col-md-4 col-form-label text-md-right">{{ __('Start Date of Noticed Problem(s) ') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="start_date" type="date" max="{{ date('Y-m-d', strtotime('-1 day')) }}" class="form-control @error('mobile_no') is-invalid @enderror" name="start_date">
+                                    <input id="start_date" type="date" max="{{ date('Y-m-d', strtotime('-1 day')) }}" required class="form-control @error('mobile_no') is-invalid @enderror" name="start_date">
                                     @error('mobile_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

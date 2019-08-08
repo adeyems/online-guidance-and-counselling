@@ -19,8 +19,9 @@ class CreateStudentsCaseFormsTable extends Migration
             $table->foreign('appointment_bookings_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');
             $table->unsignedTinyInteger('questionnaire_reference_no');
             $table->foreign('questionnaire_reference_no')->references('questionnaire_form_reference_no')->on('students_questionnaire_forms');
-            $table->unsignedTinyInteger('employment_no');
+            $table->string('employment_no');
             $table->string('student_no');
+            $table->mediumText('case_details');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->timestamps();
         });

@@ -12,13 +12,18 @@
                     <div class="card-header text-center">Teacher Home</div>
 
                     <div class="card-body text-center">
-                        @if (session('status'))
-                            <div class="alert alert-success alert-dismissible" role="alert">
-                                {{ session('status') }}
+                        @if ($message = Session::get('status'))
+
+                            <div class="alert alert-success alert-block text-center">
+
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                <strong class="text-center">{{ $message }}</strong>
+
                             </div>
                         @endif
-                        <a href="{{ route('login.student') }}" style="margin-right: 30px;" class="btn btn-primary">Complete Questionnaire Form</a>
-                        <a href="{{ route('login.parent') }}" class="btn btn-primary" style="margin-right: 30px;">View/Update Student Case Form</a>
+                        <a href="{{ route('questionnaire.view') }}" style="margin-right: 30px;" class="btn btn-primary">Completed Questionnaire Form</a>
+                        <a href="{{ route('questionnaire.view') }}" class="btn btn-primary" style="margin-right: 30px;">View/Update Student Case Form</a>
                     </div>
                 </div>
             </div>

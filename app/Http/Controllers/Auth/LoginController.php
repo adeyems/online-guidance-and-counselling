@@ -43,27 +43,51 @@ class LoginController extends Controller
         //$this->middleware('guest')->except('logout');
 
         if (session()->has('user')){
-            redirect('/home');
+            redirect("/home/");
         }
     }
 
     public function student()
     {
+        if (session()->has('user')){
+            $url = strtolower(session()->get('role')[0]);
+
+            return redirect("/home/$url");
+        }
+
         return view('auth.login')->with('user', 'Student')->with('login', 'studentLogin')->with('register', 'studentRegister');
     }
 
     public function parent()
     {
+        if (session()->has('user')){
+            $url = strtolower(session()->get('role')[0]);
+
+            return redirect("/home/$url");
+        }
+
         return view('auth.login')->with('user', 'Parent')->with('login', 'parentLogin')->with('register', 'parentRegister');
     }
 
     public function teacher()
     {
+        if (session()->has('user')){
+            $url = strtolower(session()->get('role')[0]);
+
+            return redirect("/home/$url");
+        }
+
         return view('auth.login')->with('user', 'Teacher')->with('login', 'teacherLogin');
     }
 
     public function counsellor()
     {
+        if (session()->has('user')){
+            $url = strtolower(session()->get('role')[0]);
+
+            return redirect("/home/$url");
+        }
+
         return view('auth.login')->with('user', 'Guidance and Counsellor')->with('login', 'counsellorLogin');
     }
 
@@ -128,6 +152,7 @@ class LoginController extends Controller
     protected function logOut()
     {
         Auth::logout();
-        redirect('/');
+        request()->session()->flush();
+        redirect('/')->with('status', "You are now logged out.");
     }
 }

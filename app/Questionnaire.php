@@ -42,4 +42,8 @@ class Questionnaire extends Model
        return Questionnaire::all();
     }
 
+    public static function getById(int $id){
+        return self::find($id);
+    }
+
 }

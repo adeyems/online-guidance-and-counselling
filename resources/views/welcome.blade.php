@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Welcome</title>
+    <title>Dashboard</title>
 @endsection
 
 @section('content')
@@ -13,6 +13,16 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;">
+            @if ($message = Session::get('status'))
+
+                <div class="alert alert-success alert-block text-center">
+
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                    <strong class="text-center">{{ $message }}</strong>
+
+                </div>
+            @endif
             <div class="col-md-12">
                 <div class="title text-center m-b-md" style="padding-bottom: 80px"><h5>Login Screen</h5></div>
                 <div class="links title m-b-md offset-2 align-content-center">

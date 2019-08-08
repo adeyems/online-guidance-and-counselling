@@ -61,3 +61,7 @@ Route::post('/questionnaire/create', 'QuestionnaireController@create')->name('qu
 Route::get('/questionnaire/view', 'QuestionnaireController@view')->name('questionnaire.view');
 
 Route::get('/questionnaire/details/{id}', 'QuestionnaireController@details')->name('questionnaire.details');
+
+Route::get('/case-form/{id}', 'CaseFormController@index')->name('case-form');
+
+Route::post('/case-form/create', 'CaseFormController@create')->name('case-form.create');

@@ -10,13 +10,14 @@ class Counsellor extends Model
 {
     use Notifiable;
 
+    protected $table = 'guidance_counsellors';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $table = 'guidance_counsellors';
-    protected $primaryKey = 'employment_no';
+
 
     protected $fillable = [
         'name', 'surname', 'mobile_no', 'address', 'position', 'password', 'email',
