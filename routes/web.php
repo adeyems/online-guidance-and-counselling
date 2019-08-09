@@ -62,6 +62,16 @@ Route::get('/questionnaire/view', 'QuestionnaireController@view')->name('questio
 
 Route::get('/questionnaire/details/{id}', 'QuestionnaireController@details')->name('questionnaire.details');
 
-Route::get('/case-form/{id}', 'CaseFormController@index')->name('case-form');
+Route::get('/caseform/new/{id}', 'CaseFormController@index')->name('caseform');
 
-Route::post('/case-form/create', 'CaseFormController@create')->name('case-form.create');
+Route::post('/caseform/create', 'CaseFormController@create')->name('caseform.create');
+
+Route::get('/caseform/view', 'CaseFormController@view')->name('caseform.view');
+
+Route::get('/caseform/details/{id}', 'CaseFormController@details')->name('caseform.details');
+
+Route::get('/caseform/update/{id}', 'CaseFormController@update')->name('caseform.update');
+
+Route::post('/caseform/update}', 'CaseFormController@updateCase')->name('caseform.updateCase');
+
+Route::get('/sms', 'SMSController@sendSMS');

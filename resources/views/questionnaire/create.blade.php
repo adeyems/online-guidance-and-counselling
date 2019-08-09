@@ -35,18 +35,36 @@
 
                                 </div>
                             @endif
-
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Questionnaire Form Ref Number') }}</label>
+                                <div class="col-md-6">
+                                    <input id="class" type="hidden" class="form-control @error('class') is-invalid @enderror" name="questionnaire_form_ref" value="{{ $ref }}" required autocomplete="class" autofocus>
+                                        <strong>{{ $ref }}</strong>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ $student_no }}" required autocomplete="class" autofocus>
+                                    <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ $student_no }}" readonly required autocomplete="class" autofocus>
 
                                     @error('student_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Booking Ref Number') }}</label>
+
+                                <div class="col-md-6">
+                                    <select id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="appointment_reference_no" autofocus required>
+                                        <option value="">Select Booking Ref Number </option>
+                                        @foreach($bookings as $booking)
+                                            <option value="{{ $booking["appointment_bookings_reference_no"]}}">{{ $booking["appointment_bookings_reference_no"] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row" id="signup-form">
@@ -75,7 +93,7 @@
                                 <label for="enddate" class="col-md-4 col-form-label text-md-right">{{ __('Start Date of Noticed Problem(s) ') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="start_date" type="date" max="{{ date('Y-m-d', strtotime('-1 day')) }}" required class="form-control @error('mobile_no') is-invalid @enderror" name="start_date">
+                                    <input id="start_date" type="date" max="{{ date('Y-m-d') }}" required class="form-control @error('mobile_no') is-invalid @enderror" name="start_date">
                                     @error('mobile_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

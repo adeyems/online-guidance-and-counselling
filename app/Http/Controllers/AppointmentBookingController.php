@@ -13,8 +13,8 @@ class AppointmentBookingController extends Controller
         if ($role == 'Teacher' || $role == 'Counsellor') {
             return redirect('/');
         }
-
-        return view('appointment.booking', [ 'student_no' => session()->get('user')[0]['student_no'] ]);
+        return view('appointment.booking',
+            [ 'student_no' => session()->get('user')[0]['student_no'], "ref" => "BOOK" . time()]);
     }
 
     public function create(Request $request){
@@ -29,7 +29,8 @@ class AppointmentBookingController extends Controller
         }
         else{
             return view('appointment.booking')->with('error',  "Sorry, An error occurred while booking your appointment.")
-                ->with( 'student_no', session()->get('user')[0]['student_no']);
+                ->with( 'student_no', session()->get('user')[0]['student_no'])
+                ->with("ref", "BOOK" . time());
         }
     }
 }

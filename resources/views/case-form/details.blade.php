@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Questionnaire Details</title>
+    <title>Case Form Details</title>
 @endsection
 
 @section('content')
@@ -9,43 +9,45 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">Student Questionnaire Form Details</div>
+                    <div class="card-header text-center">Student Case Form Details</div>
                     <div class="card-body text-center">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Questionnaire Form Reference No
+                            Case Form Reference No
                             <span class="badge badge-primary badge-pill">
-                                {{ $questionnaire["questionnaire_form_ref"]}}
+                                {{ $caseForm["case_reference_no"]}}
                             </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Student No
-                            <span class="badge badge-primary badge-pill">{{ $questionnaire["student_no"]}}</span>
+                            <span class="badge badge-primary badge-pill">{{ $caseForm["student_no"]}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Booking Reference No
-                            <span class="badge badge-primary badge-pill">{{ $questionnaire["appointment_reference_no"] }}</span>
+                            <span class="badge badge-primary badge-pill">{{ $caseForm["appointment_bookings_reference_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Problem Description
-                            <span class="text-center"><p>{{ $questionnaire["problem_description"] }}</p></span>
+                            Employment No
+                            <span class="badge badge-primary badge-pill">{{ $caseForm["employment_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Start Date of Notice Problem
-                            <span class="badge badge-primary badge-pill">
-                                {{ $questionnaire["start_date_of_noticed_problems"] }}
-                                </span>
+                            Questionnaire Reference No
+                            <span class="badge badge-primary badge-pill">{{ $caseForm["questionnaire_ref"] }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Case Details
+                            <span class="text-center"><p>{{ $caseForm["case_details"] }}</p></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Date of Submission
                             <span class="badge badge-primary badge-pill">
-                                {{ explode(" ", $questionnaire["created_at"])[0] }}
+                                {{ explode(" ", $caseForm["created_at"])[0] }}
                                 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             TIme of Submission
                             <span class="badge badge-primary badge-pill">
-                                 {{ explode(" ", $questionnaire["created_at"])[1] }}
+                                 {{ explode(" ", $caseForm["created_at"])[1] }}
                                 </span>
                         </li>
 
@@ -53,7 +55,7 @@
                     </div>
                 </div><br><br>
                 <div class="col-md-3 offset-md-6 align-content-center">
-                    <a class="btn btn-primary btn-lg" href="{{ route('questionnaire.view') }}">Close</a>
+                    <a class="btn btn-primary btn-lg" href="{{ route('caseform.view') }}">Close</a>
                 </div>
             </div>
         </div>

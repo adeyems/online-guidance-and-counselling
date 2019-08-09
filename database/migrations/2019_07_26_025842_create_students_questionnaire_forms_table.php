@@ -14,7 +14,8 @@ class CreateStudentsQuestionnaireFormsTable extends Migration
     public function up()
     {
         Schema::create('students_questionnaire_forms', function (Blueprint $table) {
-            $table->string('questionnaire_form_reference_no');
+            $table->bigIncrements('id');
+            $table->string('questionnaire_form_ref')->unique();
             $table->string('student_no');
             $table->foreign('student_no')->references('student_no')->on('students')->onDelete('cascade');
             $table->string('appointment_reference_no');

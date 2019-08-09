@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Completed Questionnaire</title>
+    <title>Case Forms</title>
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
                     </div>
                 @endif
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Completed Questionnaire Form') }}</div>
+                    <div class="card-header text-center">{{ __('Student Case Forms') }}</div>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
@@ -28,18 +28,18 @@
                                 <th scope="col">Student No</th>
                                 <th scope="col">Student Name and Surname</th>
                                 <th scope="col">View</th>
-                                <th scope="col">Create Case Form</th>
+                                <th scope="col">Update Case Form</th>
                             </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            @foreach($questionnaires as $questionnaire)
-                            <th scope="row">{{ sizeof($questionnaires) - $loop->index }}</th>
-                            <td>{{ $questionnaire["questionnaire_form_ref"]}}</td>
-                            <td> {{ $questionnaire["student"]["student_no"] }} </td>
-                            <td>{{ $questionnaire["student"]["name"] }} {{ $questionnaire["student"]["surname"] }}</td>
-                            <td><a href="/questionnaire/details/{{ $questionnaire["id"]}}">View Details</a></td>
-                            <td><a href="/caseform/new/{{$questionnaire["id"]}}">Create</a></td>
+                            @foreach($caseForms as $caseForm)
+                            <th scope="row">{{ sizeof($caseForms) - $loop->index }}</th>
+                            <td>{{ $caseForm["case_reference_no"]}}</td>
+                            <td> {{ $caseForm["student"]["student_no"] }} </td>
+                            <td>{{ $caseForm["student"]["name"] }} {{ $caseForm["student"]["surname"] }}</td>
+                            <td><a href="/caseform/details/{{ $caseForm["id"]}}">View Details</a></td>
+                            <td><a href="/caseform/update/{{$caseForm["id"]}}">Update</a></td>
                         </tr>
                             @endforeach
                         </tbody>

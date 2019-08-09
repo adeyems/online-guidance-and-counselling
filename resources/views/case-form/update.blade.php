@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Questionnaire Form</title>
+    <title>Case Form</title>
 @endsection
 
 @section('content')
@@ -9,15 +9,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Create New Student Case Form') }}</div>
+                    <div class="card-header text-center">{{ __('Update Student Case Form') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('caseform.create') }}">
+                        <form method="POST" action="{{ route('caseform.updateCase') }}">
                             @csrf
-                            <input type="hidden" name="case_reference_no" value="{{ $ref }}">
-                            <input type="hidden" name="appointment_bookings_reference_no" value="{{$questionnaire["appointment_reference_no"]}}">
-                            <input type="hidden" name="questionnaire_reference_no" value="{{$questionnaire["questionnaire_form_ref"]}}">
-                            <input type="hidden" name="student_no" value="{{$questionnaire["student_no"]}}">
-                            <input type="hidden" name="employment_no" value="{{session()->get('user')[0]["employment_no"]}}">
+                            <input type="hidden" name="id" value="{{ $caseForm["id"] }}">
                             @isset( $error )
                                 <div class="alert alert-success text-center">{{ $error }}</div>
                             @endisset
@@ -30,18 +26,18 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student Case Form Reference No
                                         <span class="badge badge-primary badge-pill">
-                                            {{ $ref }}
+                                            {{ $caseForm["case_reference_no"] }}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Questionnaire Form Reference No
                                         <span class="badge badge-primary badge-pill">
-                                            {{ $questionnaire["questionnaire_form_ref"]}}
+                                            {{ $caseForm["questionnaire_form_ref"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Appointment Booking Reference No
-                                        <span class="badge badge-primary badge-pill">{{ $questionnaire["appointment_reference_no"] }}</span>
+                                        <span class="badge badge-primary badge-pill">{{ $caseForm["appointment_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No
@@ -49,18 +45,18 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student No
-                                        <span class="badge badge-primary badge-pill">{{ $questionnaire["student_no"]}}</span>
+                                        <span class="badge badge-primary badge-pill">{{ $caseForm["student_no"]}}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student Name and Surname
                                         <span class="badge badge-primary badge-pill">
-                                            {{ $questionnaire["student"]["name"]}} {{ $questionnaire["student"]["surname"]}}
+                                            {{ $caseForm["student"]["name"]}} {{ $caseForm["student"]["surname"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Case Details
                                         <span class="">
-                                            <textarea rows="7" cols="50" name="case_details" required minlength="10"></textarea>
+                                            <textarea rows="7" cols="50" name="case_details" required minlength="10">{{ $caseForm['case_details'] }}</textarea>
                                         </span>
                                     </li>
                                 </ul>

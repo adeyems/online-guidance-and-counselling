@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\AppointmentBooking;
 use App\Questionnaire;
 use App\Student;
 use Illuminate\Http\Request;
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\TwilioException;
 
 class QuestionnaireController extends Controller
 {
@@ -14,8 +17,9 @@ class QuestionnaireController extends Controller
         if ($role == 'Teacher' || $role == 'Counsellor') {
             return redirect('/');
         }
-
-        return view('questionnaire.create', [ 'student_no' => session()->get('user')[0]['student_no'] ]);
+        $bookings = AppointmentBooking::getByStudentNo(session()->get('user')[0]['student_no']);
+        return view('questionnaire.create',
+            [ 'student_no' => session()->get('user')[0]['student_no'], "ref" => "QE" . time(), "bookings" => $bookings ]);
     }
 
     public function create(Request $request){
@@ -26,11 +30,21 @@ class QuestionnaireController extends Controller
         }
 
         if (Questionnaire::create($request)) {
+            try {
+                SMSController::sendSMS(session()->get('user')[0]['mobile_no']);
+            } catch (ConfigurationException $e) {
+                dd($e->getMessage());
+            } catch (TwilioException $e) {
+                dd($e->getMessage());
+            }
             return redirect("/home/$role")->with('status', 'Your questionnaire was submitted successfully!');
         }
         else{
+            $bookings = AppointmentBooking::getByStudentNo(session()->get('user')[0]['student_no']);
             return view('questionnaire.create')->with('error',  "Sorry, An error occurred while creating your questionnaire.")
-                ->with([ 'student_no', session()->get('user')[0]['student_no'] ]);
+                ->with( 'student_no', session()->get('user')[0]['student_no'] )
+                ->with("bookings,", $bookings)
+                ->with("ref", "QE" . time());
         }
     }
 

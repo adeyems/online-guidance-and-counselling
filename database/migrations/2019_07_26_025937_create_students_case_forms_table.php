@@ -14,11 +14,12 @@ class CreateStudentsCaseFormsTable extends Migration
     public function up()
     {
         Schema::create('students_case_forms', function (Blueprint $table) {
-            $table->tinyIncrements('case_reference_no');
+            $table->bigIncrements('id');
+            $table->string('case_reference_no')->unique();
             $table->string('appointment_bookings_reference_no');
             $table->foreign('appointment_bookings_reference_no')->references('appointment_bookings_reference_no')->on('appointment_bookings');
-            $table->string('questionnaire_reference_no');
-            $table->foreign('questionnaire_reference_no')->references('questionnaire_form_reference_no')->on('students_questionnaire_forms');
+            $table->string('questionnaire_ref');
+            $table->foreign('questionnaire_ref')->references('questionnaire_form_ref')->on('students_questionnaire_forms');
             $table->string('employment_no');
             $table->string('student_no');
             $table->mediumText('case_details');
