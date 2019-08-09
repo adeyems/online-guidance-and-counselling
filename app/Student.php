@@ -71,4 +71,14 @@ class Student extends Model
         return Student::where('student_no', $studentNo)->first();
     }
 
+    public static function findByEmail(string $email){
+        $user = self::where('email', $email)->first();
+        if ($user) {
+            $user->userType = 'student';
+            return $user;
+        }
+
+        return null;
+    }
+
 }

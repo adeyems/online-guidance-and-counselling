@@ -28,4 +28,14 @@ class Teacher extends Model {
     public static function getTeachersName() {
         return Teacher::select('name', 'surname')->get();
     }
+
+    public static function findByEmail(string $email){
+        $user = self::where('email', $email)->first();
+        if ($user) {
+            $user->userType = 'student';
+            return $user;
+        }
+
+        return null;
+    }
 }

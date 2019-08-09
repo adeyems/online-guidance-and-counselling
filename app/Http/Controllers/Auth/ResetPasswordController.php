@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Counsellor;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MailController;
+use App\PasswordReset;
+use App\Student;
+use App\StudentParent;
+use App\Teacher;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class ResetPasswordController extends Controller
 {
@@ -47,7 +55,22 @@ class ResetPasswordController extends Controller
     }
 
 
-    public function sendResetEmail(){
-        return redirect('/password/reset');
+    public function sendResetEmail(Request $request){
+        $user = Student::findByEmail($request->email) ?? StudentParent::findByEmail($request->email) ?? Teacher::findByEmail($request->email)
+            ?? Counsellor::findByEmail($request->email);
+
+       if ($user){
+           $url = 'https://' . $_SERVER['HTTP_HOST'] . '/password/reset/' . PasswordReset::create($user);
+
+           $text = "Copy and paster this lijk to reset your password. $url";
+           $html = "<p>Click <a href=\"$url\">here</a> to reset your password</p>";
+
+
+           MailController::send($user->email, 'Password Reset', $text, $html);
+
+           return back()->with('success', 'A reset link has been sent to your email address');
+       }
+        return back()->with('fail', 'Sorry, We could not find a user with this email');
+
     }
 }

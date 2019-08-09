@@ -18,6 +18,12 @@
                         </div>
                     @endif
 
+                        @if (session('fail'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
                     <form method="POST" action="{{ route('send-reset-email') }}">
                         @csrf
 

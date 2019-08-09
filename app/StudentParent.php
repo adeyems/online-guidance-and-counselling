@@ -63,4 +63,14 @@ class StudentParent extends Model
 
     }
 
+    public static function findByEmail(string $email){
+        $user = self::where('email', $email)->first();
+        if ($user) {
+            $user->userType = 'student';
+            return $user;
+        }
+
+        return null;
+    }
+
 }
