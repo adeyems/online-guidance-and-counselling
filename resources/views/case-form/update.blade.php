@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Update Student Case Form') }}</div>
+                    <div class="card-header text-center" style="font-weight: bolder">{{ __('Update Student Case Form') }}</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('caseform.updateCase') }}">
                             @csrf

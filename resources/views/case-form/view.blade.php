@@ -19,7 +19,7 @@
                     </div>
                 @endif
                 <div class="card">
-                    <div class="card-header text-center">{{ __('Student Case Forms') }}</div>
+                    <div class="card-header text-center" style="font-weight: bolder">{{ __('Student Case Forms') }}</div>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>

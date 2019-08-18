@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">Parent Home</div>
+                    <div class="card-header text-center" style="font-weight: bolder">Parent Home</div>
 
                     <div class="card-body text-center">
                         @if ($message = Session::get('status'))

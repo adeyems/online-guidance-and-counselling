@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header text-center">Student Case Form Details</div>
+                    <div class="card-header text-center" style="font-weight: bolder">Student Case Form Details</div>
                     <div class="card-body text-center">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">

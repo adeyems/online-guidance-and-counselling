@@ -25,7 +25,7 @@
             @endif
             <div class="col-md-12">
                 <div class="card">
-                    <div class="title text-center m-b-md card-header" style="padding-bottom: 30px"><h5>Login Screen</h5></div>
+                    <div class="title text-center m-b-md card-header" style="font-weight: bolder; padding-bottom: 30px">Login Screen</div>
                     <div class="links title m-b-md offset-2 align-content-center card-body">
                         <a href="{{ route('login.student') }}" style="margin-right: 30px;" class="btn btn-secondary">Student</a>
                         <a href="{{ route('login.parent') }}" class="btn btn-secondary" style="margin-right: 30px;">Parent</a>

@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ __('Reset Password') }}</div>
+                <div class="card-header text-center" style="font-weight: bolder">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))

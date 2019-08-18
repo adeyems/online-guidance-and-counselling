@@ -25,7 +25,7 @@
             @endif
             <div class="col-md-12">
                 <div class="card">
-                    <div class="title text-center m-b-md card-header" style="padding-bottom: 30px"><h5>About Us</h5></div>
+                    <div class="title text-center m-b-md card-header" style="padding-bottom: 30px; font-weight: bolder"><h5>About Us</h5></div>
                     <div class="card-body">
                         <p style="text-transform: none; text-align: justify; text-justify: inter-word" class="text-secondary text-justify">
                             Queen Ede Secondary School endeavours to provide support all our students in their journey.
