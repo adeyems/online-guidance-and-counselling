@@ -50,7 +50,7 @@ class CaseFormController extends Controller
         return view('case-form.view', ['caseForms' => $caseForms]);
     }
 
-    public function details(int $id){
+    public function details(int $id) {
         $role = session()->get('role')[0];
 
         if ($role == 'Student' || $role == 'Parent') {
@@ -61,7 +61,7 @@ class CaseFormController extends Controller
         return view('case-form.details', ['caseForm' => $caseForm]);
     }
 
-    public function update(int $id){
+    public function update(int $id) {
         $role = session()->get('role')[0];
 
         if ($role == 'Student' || $role == 'Parent') {
@@ -88,5 +88,4 @@ class CaseFormController extends Controller
             return back()->with('error',  "Sorry, Your case could not be updated.");
         }
     }
-
 }

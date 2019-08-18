@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -52,7 +53,7 @@ class PasswordReset extends Model
 
 
     public static function findByToken(string $token){
-        $user = self::where('token', $token)->first();
+        $user = self::where('token', $token)->where( 'created_at', '>=', Carbon::now()->subHours(2))->first();
 
         return $user;
     }

@@ -32,10 +32,24 @@ class Teacher extends Model {
     public static function findByEmail(string $email){
         $user = self::where('email', $email)->first();
         if ($user) {
-            $user->userType = 'student';
+            $user->userType = 'teacher';
             return $user;
         }
 
         return null;
+    }
+
+    public static function getByEmail(string $email){
+        $user = self::where('email', $email)->first();
+
+        return $user;
+
+    }
+
+    public static function updatePassword($user, $password){
+        $teacher = self::where('email', $user->email)->first();
+        $teacher->password = sha1($password);
+
+        return $teacher->save();
     }
 }

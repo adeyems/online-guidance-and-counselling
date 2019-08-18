@@ -58,19 +58,36 @@ class StudentParent extends Model
         $parent->address = $request->address;
         $parent->password = sha1($request->password);
         $parent->student_no =  $request->student_no;
+        $parent->verification_token = hash_hmac('sha256', $request->email, $request->surname . time());
 
-        return $parent->save();
+        if ($parent->save()){
+            return $parent;
+        }
+
+        return false;
 
     }
 
     public static function findByEmail(string $email){
         $user = self::where('email', $email)->first();
         if ($user) {
-            $user->userType = 'student';
+            $user->userType = 'parent';
             return $user;
         }
 
         return null;
     }
+    public static function getByEmail(string $email){
+        $user = self::where('email', $email)->first();
 
+        return $user;
+
+    }
+
+    public static function updatePassword($user, $password){
+        $parent = self::where('email', $user->email)->first();
+        $parent->password = sha1($password);
+
+        return $parent->save();
+    }
 }

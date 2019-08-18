@@ -17,10 +17,16 @@
 
     // Make an HTTP POST Request
   async post(url, data) {
+      let token = document.querySelector('meta[name="csrf-token"]')
+          .getAttribute('content');
+      console.log(token);
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token
       },
       body: JSON.stringify(data)
     });

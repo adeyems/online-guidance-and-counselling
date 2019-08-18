@@ -17,7 +17,16 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route($login) }}">
                         @csrf
+                        @if ($message = Session::get('status'))
 
+                            <div class="alert alert-success alert-block text-center">
+
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                <strong class="text-center">{{ $message }}</strong>
+
+                            </div>
+                        @endif
                         @isset( $error )
                             <div class="alert alert-danger text-center alert-dismissible">{{ $error }}</div>
                         @endisset
@@ -103,7 +112,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-12 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-secondary">
                                     {{ __('Login') }}
                                 </button><br>
 

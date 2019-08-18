@@ -1,4 +1,4 @@
-@extends('layouts.app')
+2@extends('layouts.app')
 
 @section('title')
     <title>Parent Registration</title>
@@ -141,7 +141,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-6">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-secondary">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -152,6 +152,4 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/Easyhttp.js') }}"></script>
-    <script src="{{ asset('js/check-email.js') }}"></script>
 @endsection

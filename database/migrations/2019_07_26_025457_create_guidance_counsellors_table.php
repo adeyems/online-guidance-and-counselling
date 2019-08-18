@@ -16,7 +16,6 @@ class CreateGuidanceCounsellorsTable extends Migration
         Schema::create('guidance_counsellors', function (Blueprint $table) {
             $table->tinyIncrements('id');
             $table->string('employment_no')->unique();
-            $table->string('name');
             $table->string('surname');
             $table->string('name');
             $table->mediumText('address');

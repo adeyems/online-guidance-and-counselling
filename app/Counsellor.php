@@ -32,11 +32,25 @@ class Counsellor extends Model
     public static function findByEmail(string $email){
         $user = self::where('email', $email)->first();
         if ($user) {
-            $user->userType = 'student';
+            $user->userType = 'counsellor';
             return $user;
         }
 
         return null;
+    }
+
+    public static function getByEmail(string $email){
+        $user = self::where('email', $email)->first();
+
+        return $user;
+
+    }
+
+    public static function updatePassword($user, $password){
+        $counsellor = self::where('email', $user->email)->first();
+        $counsellor->password = sha1($password);
+
+        return $counsellor->save();
     }
 
 }

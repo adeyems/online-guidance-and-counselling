@@ -69,5 +69,8 @@ class HomeController extends Controller
         return view('home.counsellor');
     }
 
+    public function about() {
+        return view('about');
+    }
 
 }

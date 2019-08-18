@@ -138,7 +138,7 @@
 
 <table width="100%" cellpadding="0" cellspacing="0" style="min-width:100%;">
     <tr>
-        <td width="100%" style="min-width:100%;background-image:url('https://ibb.co/bz9ohU');padding:10px;">
+        <td width="100%" style="min-width:100%;background-image:url('https://ibb.co/vsL7tfn');padding:10px;">
             <center>
                 <table class="container600" cellpadding="0" cellspacing="0" width="600">
                     <tr>
@@ -146,7 +146,7 @@
                             <table width="100%" cellpadding="0" cellspacing="0" style="min-width:100%; ">
                                 <tr>
                                     <td width="100%" style="min-width:100%;background-color:whitesmoke; padding:50px; border-style: inset; border-color: #FB8A2E;">
-                                        <a href="{{ $home }}"> <img src="https://image.ibb.co/b0pSbp/logo.png"  alt="logo" border="0" width="210" style="display: block;" /></a>
+                                        <a href="{{ $home }}"> <img src="https://i.ibb.co/4s46QCr/queen-ede.png"  alt="logo" border="0" width="210" style="display: block;" /></a>
                                     </td>
                                 </tr>
                             </table>
@@ -155,7 +155,7 @@
                                     <td width="100%" style="min-width:100%;background-color:#F8F7F0;color:#686868;padding:30px;">
                                         <h2 style="font-family:Arial;font-size:36px;line-height:44px;padding-top:10px;padding-bottom:10px; text-align: center">Password Reset</h2>
 
-                                        <br> <p style="text-align:center;">Reset your password by clicking on this <i><a style="color: #FB8A2E;; text-decoration: none" href="{{url}}">link.</a></i>
+                                        <br> <p style="text-align:center;">Reset your password by clicking on this <i><a style="color: #FB8A2E;; text-decoration: none" href="{{ $url }}">link.</a> Link expires in 2 hours.</i>
                                         </p>
                                         <br>
 
@@ -173,7 +173,8 @@
                                             width: 150px;
 
 
-                                            cursor: pointer;" type="submit" value="Reset"> </form>                                   </td>
+                                            cursor: pointer;" type="submit" value="Reset"> </form>
+                                    </td>
                                 </tr>
                             </table>
                             <table width="100%" cellpadding="0" cellspacing="0" style="min-width:100%; background-color: black; ">
@@ -188,8 +189,7 @@
                 </table>
             </center>
         </td>
-    </tr>email.blade.php
-    reset.blade.php
+    </tr>
 </table>
 </body>
 </html>

@@ -53,7 +53,7 @@
                     </div>
                 </div><br><br>
                 <div class="col-md-3 offset-md-6 align-content-center">
-                    <a class="btn btn-primary btn-lg" href="{{ route('questionnaire.view') }}">Close</a>
+                    <a class="btn btn-secondary btn-lg" href="{{ route('questionnaire.view') }}">Close</a>
                 </div>
             </div>
         </div>

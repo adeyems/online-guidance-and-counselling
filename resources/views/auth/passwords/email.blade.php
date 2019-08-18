@@ -9,18 +9,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header text-center">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success text-center" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
                         @if (session('fail'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('status') }}
+                            <div class="alert alert-danger text-center" role="alert">
+                                {{ session('fail') }}
                             </div>
                         @endif
 

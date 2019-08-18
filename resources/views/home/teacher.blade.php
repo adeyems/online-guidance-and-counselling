@@ -22,8 +22,8 @@
 
                             </div>
                         @endif
-                        <a href="{{ route('questionnaire.view') }}" style="margin-right: 30px;" class="btn btn-primary">Completed Questionnaire Form</a>
-                        <a href="{{ route('caseform.view') }}" class="btn btn-primary" style="margin-right: 30px;">View/Update Student Case Form</a>
+                        <a href="{{ route('questionnaire.view') }}" style="margin-right: 30px;" class="btn btn-secondary">Completed Questionnaire Form</a>
+                        <a href="{{ route('caseform.view') }}" class="btn btn-secondary" style="margin-right: 30px;">View/Update Student Case Form</a>
                     </div>
                 </div>
             </div>

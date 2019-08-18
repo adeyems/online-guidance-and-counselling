@@ -22,8 +22,8 @@
 
                             </div>
                         @endif
-                        <a href="{{ route('appointment.book') }}" style="margin-right: 30px;" class="btn btn-primary">Book Appointment</a>
-                        <a href="{{ route('questionnaire') }}" class="btn btn-primary" style="margin-right: 30px;">Fill Questionnaire Form</a>
+                        <a href="{{ route('appointment.book') }}" style="margin-right: 30px;" class="btn btn-secondary">Book Appointment</a>
+                        <a href="{{ route('questionnaire') }}" class="btn btn-secondary" style="margin-right: 30px;">Fill Questionnaire Form</a>
                 </div>
                 </div>
             </div>

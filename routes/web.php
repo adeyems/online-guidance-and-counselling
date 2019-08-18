@@ -33,6 +33,7 @@ Route::post('/login/counsellorLogin', 'Auth\LoginController@counsellorLogin')->n
 //Register Page Routes
 Route::get('/register/student', 'Auth\RegisterController@student')->name('studentRegister');
 Route::get('/register/parent', 'Auth\RegisterController@studentParent')->name('parentRegister');
+Route::get('/about', 'HomeController@about');
 
 
 //Register Page Routes
@@ -44,11 +45,13 @@ Route::get('/logout', 'Auth\LogoutController@index')->name('logout');
 
 Route::get('/password/email', 'Auth\ResetPasswordController@viewResetEmail')->name('reset-email');
 
-Route::get('/password/reset', 'Auth\ResetPasswordController@viewResetPassword')->name('reset-password');
+Route::get('/password/reset-password', 'Auth\ResetPasswordController@viewResetPassword')->name('reset-password');
 
 Route::post('/password/update', 'Auth\ResetPasswordController@UpdatePassword')->name('password.update');
 
 Route::post('/password/reset', 'Auth\ResetPasswordController@sendResetEmail')->name('send-reset-email');
+
+Route::get('/reset/{id}', 'Auth\ResetPasswordController@resetPassword');
 
 Route::get('/appointment/booking', 'AppointmentBookingController@index')->name('appointment.book');
 
@@ -75,3 +78,6 @@ Route::get('/caseform/update/{id}', 'CaseFormController@update')->name('caseform
 Route::post('/caseform/update}', 'CaseFormController@updateCase')->name('caseform.updateCase');
 
 Route::get('/sms', 'SMSController@sendSMS');
+
+Route::get('/mail', 'MailController@send');
+

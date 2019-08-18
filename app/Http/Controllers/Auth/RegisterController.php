@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\MailController;
 use App\Student;
 use App\StudentParent;
 use App\Teacher;
@@ -87,8 +88,14 @@ class RegisterController extends Controller
     public function createStudent(Request $request) {
 
 
-         if (Student::create($request)) {
+         $user = Student::create($request);
+         if ($user){
+             $home = 'http://' . $_SERVER['HTTP_HOST'];
+             $url =  $home . '/verify/' . $user->verification_token;
+             MailController::sendVerifyMail($user->email, $home, $url);
              $request->session()->flash('status', 'Your account was created successfully!');
+
+
              return redirect('/login/student');
          }
 
@@ -101,13 +108,21 @@ class RegisterController extends Controller
 
     public function createParent(Request $request) {
 
-        if (StudentParent::create($request)) {
+        $user = StudentParent::create($request);
+        if ($user) {
+            $home = 'http://' . $_SERVER['HTTP_HOST'];
+            $url =  $home . '/verify/' . $user->verification_token;
+            MailController::sendVerifyMail($user->email, $home, $url);
             $request->session()->flash('status', 'Your account was created successfully!');
             return redirect('/login/parent');
         }
         else{
             return view('auth.register.student')->with('error',  "Sorry, An error occurred");
         }
+    }
+
+    public function verifyEmail($id) {
+        dd($id);
     }
 
 }

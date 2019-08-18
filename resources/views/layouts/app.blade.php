@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: white; background-image: url({{asset('images/counselling_background_2.jpg')}}">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -36,13 +36,14 @@
                         <li class="nav-item">
                             <a href="/"> <img src="{{ asset('images/queen_ede.png') }}" style="max-width: 200px; max-height: 100px" alt="Queen Ede Secondary School"></a>
                         </li>
-                        {{--<li class="nav-item">--}}
-                            {{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
-                        {{--</li>--}}
                     </ul>
                     <div class="col-md-10 text-center" style="font-size: medium">
                       SECURED GUIDANCE, COUNSELLING AND MONITORING WEB APPLICATION
                     </div>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about" style="font-size: medium">About</a></li>
+                    </ul>
                     <!-- Right Side Of Navbar -->
                     <?php if(session()->has('user')): ?>
                     <ul class="navbar-nav ml-auto">

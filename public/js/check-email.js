@@ -16,10 +16,22 @@ const email = document.getElementById("email");
 
 const emailMsg = document.getElementById("email-msg");
 
+const studentNo = document.getElementById("student-no");
+
+const studentNolMsg = document.getElementById("student-no-msg");
+
+const phone = document.getElementById("phone");
+
+const phoneMsg = document.getElementById("phone-msg");
+
+const password = document.getElementById("password");
+
+const confirmPassword = document.getElementById("confirm-password");
+
 let emailValid, currentDiv;
 
-email.value = "qddddddddd";
-//Validate Email
+
+
 const validateEmail  = () => {
     let data = email.value;
     if (data !== ''){
@@ -67,7 +79,4 @@ const clearUIMessage = () => {
     currentDiv.innerHTML = '';
 };
 
-email.addEventListener('blur', () => {
-        console.log("aaaaaaaaaaaaa");
-    }
-);
+

@@ -3,35 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mailgun\Mailgun;
+use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public static function send($to, $subject, $text, $html, $attachments = null)
+    public static function sendReset($to, $home, $url)
     {
-        $mgClient = new Mailgun(env('MAILGUN_API_KEY'));
-        $domain = env('MAILGUN_DOMAIN');
+     Mail::send('auth.passwords.reset-template', ["url" => $url, "home" => $home], function ($message) use ($to){
+         $message->to($to)->subject('Reset Password');
+     });
 
-        //$html = file_get_contents($html);
+        if (Mail::failures()) {
+            return false;
+        }else{
+            return true;
+        }
+    }
 
-        $result = $mgClient->sendMessage(
-            $domain,
-            array(
-                'from'    =>
-                    'Queen Ede School <queenedeschool.com>',
-                'to'      =>
-                    $to,
-                'subject' =>
-                    $subject,
-                'text'    =>
-                    $text,
-                'html'    => $html
-            ),
-            array(
-                'attachment' =>
-                    $attachments
-            )
-        );
+    public static function sendVerifyMail($to, $home, $url)
+    {
+        Mail::send('auth.register.confirm_email', ["url" => $url, "home" => $home], function ($message) use ($to){
+            $message->to($to)->subject('Verify Email');
+        });
 
+        if (Mail::failures()) {
+            return false;
+        }else{
+            return true;
+        }
     }
 }

@@ -81,4 +81,18 @@ class Student extends Model
         return null;
     }
 
+    public static function getByEmail(string $email){
+        $user = self::where('email', $email)->first();
+
+        return $user;
+
+    }
+
+    public static function updatePassword($user, $password){
+        $student = self::where('email', $user->email)->first();
+        $student->password = sha1($password);
+
+        return $student->save();
+    }
+
 }
