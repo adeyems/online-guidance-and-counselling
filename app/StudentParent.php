@@ -58,7 +58,7 @@ class StudentParent extends Model
         $parent->address = $request->address;
         $parent->password = sha1($request->password);
         $parent->student_no =  $request->student_no;
-        $parent->verification_token = hash_hmac('sha256', $request->email, $request->surname . time());
+       // $parent->verification_token = hash_hmac('sha256', $request->email, $request->surname . time());
 
         if ($parent->save()){
             return $parent;
