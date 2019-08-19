@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Counsellor;
 use App\Http\Controllers\MailController;
 use App\Student;
 use App\StudentParent;
@@ -105,7 +106,7 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)){
+        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email) || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
         }
 
