@@ -90,4 +90,8 @@ class StudentParent extends Model
 
         return $parent->save();
     }
+
+    public static function findByStudentNo(string $studentNo) {
+        return self::where('student_no', $studentNo)->first();
+    }
 }

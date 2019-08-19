@@ -61,7 +61,9 @@ class Student extends Model
         $student->class = $request->class;
         $student->password = sha1($request->password);
         $student->class_teacher_name = explode(" ", $request->class_teacher_name)[0];
-        $student->class_teacher_surname = explode(" ",  $request->class_teacher_name)[1];
+       // $student->class_teacher_surname = explode(" ",  $request->class_teacher_name)[1];
+
+
 
        return $student->save();
 
@@ -93,6 +95,10 @@ class Student extends Model
         $student->password = sha1($password);
 
         return $student->save();
+    }
+
+    public static function findByStudentNo(string $no){
+        return self::find($no);
     }
 
 }

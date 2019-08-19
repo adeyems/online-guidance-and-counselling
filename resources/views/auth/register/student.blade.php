@@ -14,6 +14,7 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('createStudent') }}">
                             @csrf
+
                             @if ($message = Session::get('status'))
 
                                 <div class="alert alert-success alert-block text-center">
@@ -24,15 +25,27 @@
 
                                 </div>
                             @endif
-                            @if ($message = Session::get('error'))
+                            @if ($message = Session::get('status'))
 
-                                <div class="alert alert-danger alert-block text-center">
+                                <div class="alert alert-success alert-block text-center">
 
                                     <button type="button" class="close" data-dismiss="alert">×</button>
 
                                     <strong class="text-center">{{ $message }}</strong>
 
                                 </div>
+                            @endif
+                            @if ($messages = Session::get('error'))
+
+                                @foreach($messages as $message)
+                                    <div class="alert alert-danger alert-block text-center">
+
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                        <strong class="text-center">{{ $message }}</strong>
+
+                                    </div>
+                                @endforeach
                             @endif
                             <div class="form-group row" id="signup-form">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
@@ -128,7 +141,7 @@
                                 <label for="mobile_no" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('email') }}" required autocomplete="mobile-no">
+                                    <input id="phone" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" placeholder="+353" value="{{ old('email') }}" required autocomplete="mobile-no">
 
                                     @error('mobile_no')
                                     <span class="invalid-feedback" role="alert">
@@ -156,7 +169,7 @@
                                 <label for="class_teacher_name" class="col-md-4 col-form-label text-md-right">{{ __('Class Teacher Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="class-teacher-name" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class_teacher_name"  required>
+                                    <select id="class-teacher-name" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class_teacher_name"  >
                                         <option value="">Select Class Teacher Name</option>
                                         @foreach ($teachersNames as $teacherName)
                                             <option value="{{ $teacherName->name }} {{ $teacherName->surname }}">{{ $teacherName->name }} {{ $teacherName->surname }}</option>
@@ -171,19 +184,23 @@
                                 </div>
                             </div>
 
+
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+
+                                </div>
                             </div>
 
-
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Retype Password') }}</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Re-type Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
-
                             </div>
 
                             <div class="form-group row mb-0">

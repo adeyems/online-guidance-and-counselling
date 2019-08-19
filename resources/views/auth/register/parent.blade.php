@@ -1,4 +1,4 @@
-2@extends('layouts.app')
+@extends('layouts.app')
 
 @section('title')
     <title>Parent Registration</title>
@@ -20,8 +20,9 @@
 
                         </div>
                     @endif
-                    @if ($message = Session::get('error'))
+                    @if ($messages = Session::get('error'))
 
+                        @foreach($messages as $message)
                         <div class="alert alert-danger alert-block text-center">
 
                             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -29,6 +30,7 @@
                             <strong class="text-center">{{ $message }}</strong>
 
                         </div>
+                        @endforeach
                     @endif
                     <div class="card-body">
                         <form method="POST" action="{{ route('createParent') }}">
@@ -40,11 +42,6 @@
                                 <div class="col-md-6">
                                     <input id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="student_no" value="{{ old('student_no') }}" required autocomplete="class" autofocus>
 
-                                    @error('student_no')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -54,11 +51,6 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -68,11 +60,7 @@
                                 <div class="col-md-6">
                                     <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                    @error('surname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+
                                 </div>
                             </div>
 
@@ -80,13 +68,10 @@
                                 <label for="mobile_no" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="mobile-no" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('email') }}" required autocomplete="mobile-no">
+                                    <input id="mobile-no" maxlength="13"  type="number" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" placeholder="+353" value="{{ old('email') }}" required autocomplete="mobile-no">
 
-                                    @error('mobile_no')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+
+
                                 </div>
                             </div>
 
@@ -95,12 +80,6 @@
 
                                 <div class="col-md-6">
                                     <textarea  class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address"> {{ old('address') }}</textarea>
-
-                                    @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -109,11 +88,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong id="email-msg">{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+
                                 </div>
                             </div>
 
@@ -123,11 +98,7 @@
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+
                                 </div>
                             </div>
 
