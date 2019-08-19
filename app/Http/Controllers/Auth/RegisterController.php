@@ -106,7 +106,8 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email) || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
+        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+            || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
         }
 
@@ -160,7 +161,8 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)){
+        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+            || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
         }
 
@@ -178,19 +180,19 @@ class RegisterController extends Controller
 
         if (!empty($errors)) {
             return back()->with('error', $errors);
-        }
-
-        $user = StudentParent::create($request);
-        if ($user) {
-            $home = 'http://' . $_SERVER['HTTP_HOST'];
-            $url =  $home . '/verify/' . $user->verification_token;
-            MailController::sendVerifyMail($user->email, $home, $url);
-            $request->session()->flash('status', 'Your account was created successfully!');
-            return redirect('/login/parent');
-        }
+        }else {
+            $user = StudentParent::create($request);
+            if ($user) {
+                $home = 'http://' . $_SERVER['HTTP_HOST'];
+                $url = $home . '/verify/' . $user->verification_token;
+                MailController::sendVerifyMail($user->email, $home, $url);
+                $request->session()->flash('status', 'Your account was created successfully!');
+                return redirect('/login/parent');
+            }
 
         else{
             return view('auth.register.parent')->with('error',  "Sorry, An error occurred")->with('old', $request);
         }
+    }
     }
 }
