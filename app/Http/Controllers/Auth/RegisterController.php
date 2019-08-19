@@ -126,18 +126,17 @@ class RegisterController extends Controller
         if (!empty($errors)) {
             return back()->with('error', $errors);
         }
-
-        $user = Student::create($request);
-        if ($user) {
-            $home = 'http://' . $_SERVER['HTTP_HOST'];
-            $url =  $home . '/verify/' . $user->verification_token;
-            MailController::sendVerifyMail($user->email, $home, $url);
-            $request->session()->flash('status', 'Your account was created successfully!');
-            return redirect('/login/parent');
-        }
-
-        else{
-            return view('auth.register.student')->with('error',  "Sorry, An error occurred")->with('old', $request);
+        else {
+            $user = Student::create($request);
+            if ($user) {
+                $home = 'http://' . $_SERVER['HTTP_HOST'];
+                $url = $home . '/verify/' . $user->verification_token;
+                MailController::sendVerifyMail($user->email, $home, $url);
+                $request->session()->flash('status', 'Your account was created successfully!');
+                return redirect('/login/parent');
+            } else {
+                return view('auth.register.student')->with('error', "Sorry, An error occurred")->with('old', $request);
+            }
         }
     }
 
