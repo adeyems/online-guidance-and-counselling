@@ -101,8 +101,6 @@ class RegisterController extends Controller
 
         $emailType = explode("@", $request->email)[1];
 
-        dd($emailType);
-
         if ($emailType != "gmail.com" && $emailType != "yahoo.com" && $emailType != "outlook.com" && $emailType != "hotmail.co.uk"){
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
