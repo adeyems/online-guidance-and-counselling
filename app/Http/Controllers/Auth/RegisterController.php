@@ -126,9 +126,9 @@ class RegisterController extends Controller
         } else {
             $user = Student::create($request);
             if ($user) {
-                $home = 'http://' . $_SERVER['HTTP_HOST'];
+                /*$home = 'http://' . $_SERVER['HTTP_HOST'];
                 $url = $home . '/verify/' . $user->verification_token;
-                MailController::sendVerifyMail($user->email, $home, $url);
+                MailController::sendVerifyMail($user->email, $home, $url);*/
                 $request->session()->flash('status', 'Your account was created successfully!');
                 return redirect('/login/parent');
             } else {
@@ -179,9 +179,9 @@ class RegisterController extends Controller
         }else {
             $user = StudentParent::create($request);
             if ($user) {
-                $home = 'http://' . $_SERVER['HTTP_HOST'];
+                /*$home = 'http://' . $_SERVER['HTTP_HOST'];
                 $url = $home . '/verify/' . $user->verification_token;
-                MailController::sendVerifyMail($user->email, $home, $url);
+                MailController::sendVerifyMail($user->email, $home, $url);*/
                 $request->session()->flash('status', 'Your account was created successfully!');
                 return redirect('/login/parent');
             }
