@@ -14,17 +14,17 @@
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Questionnaire Form Reference No
-                            <span class="badge badge-primary badge-pill">
+                            <span class="">
                                 {{ $questionnaire["questionnaire_form_ref"]}}
                             </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Student No
-                            <span class="badge badge-primary badge-pill">{{ $questionnaire["student_no"]}}</span>
+                            <span class="">{{ $questionnaire["student_no"]}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Booking Reference No
-                            <span class="badge badge-primary badge-pill">{{ $questionnaire["appointment_reference_no"] }}</span>
+                            <span class="">{{ $questionnaire["appointment_reference_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Problem Description
@@ -32,19 +32,19 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Start Date of Notice Problem
-                            <span class="badge badge-primary badge-pill">
+                            <span class="">
                                 {{ $questionnaire["start_date_of_noticed_problems"] }}
                                 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Date of Submission
-                            <span class="badge badge-primary badge-pill">
+                            <span class="">
                                 {{ explode(" ", $questionnaire["created_at"])[0] }}
                                 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             TIme of Submission
-                            <span class="badge badge-primary badge-pill">
+                            <span class="">
                                  {{ explode(" ", $questionnaire["created_at"])[1] }}
                                 </span>
                         </li>

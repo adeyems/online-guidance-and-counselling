@@ -25,31 +25,31 @@
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student Case Form Reference No
-                                        <span class="badge badge-primary badge-pill">
+                                        <span class="">
                                             {{ $caseForm["case_reference_no"] }}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Questionnaire Form Reference No
-                                        <span class="badge badge-primary badge-pill">
+                                        <span class="">
                                             {{ $caseForm["questionnaire_form_ref"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Appointment Booking Reference No
-                                        <span class="badge badge-primary badge-pill">{{ $caseForm["appointment_reference_no"] }}</span>
+                                        <span class="">{{ $caseForm["appointment_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No
-                                        <span class="badge badge-primary badge-pill">{{ session()->get('user')[0]["employment_no"] }}</span>
+                                        <span class="">{{ session()->get('user')[0]["employment_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student No
-                                        <span class="badge badge-primary badge-pill">{{ $caseForm["student_no"]}}</span>
+                                        <span class="">{{ $caseForm["student_no"]}}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Student Name and Surname
-                                        <span class="badge badge-primary badge-pill">
+                                        <span class="">
                                             {{ $caseForm["student"]["name"]}} {{ $caseForm["student"]["surname"]}}
                                         </span>
                                     </li>
