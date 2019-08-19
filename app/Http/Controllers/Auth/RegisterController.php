@@ -96,9 +96,9 @@ class RegisterController extends Controller
             $errors["s"] = "The Student Number should be in the format - QE200 and four other numbers";
 }
 
-        if (substr($request->mobile_no,0,4) != "+353" || strlen($request->mobile_no != 13)){
+        /*if (substr($request->mobile_no,0,4) != "+353" || strlen($request->mobile_no != 13)){
             $errors["c"] = "Mobile Number should start with +353 and 9 other integer characters";
-        }
+        }*/
 
         $emailType = explode("@", $request->email)[1];
 
@@ -106,10 +106,10 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+       /* if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
             || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
-        }
+        }*/
 
         $uppercase = preg_match('@[A-Z]@', $request->password);
         $lowercase = preg_match('@[a-z]@', $request->password);
@@ -125,8 +125,7 @@ class RegisterController extends Controller
 
         if (!empty($errors)) {
             return back()->with('error', $errors);
-        }
-        else {
+        } else {
             $user = Student::create($request);
             if ($user) {
                 $home = 'http://' . $_SERVER['HTTP_HOST'];
@@ -150,7 +149,7 @@ class RegisterController extends Controller
             $errors["b"] = "A parent is associated with this student $request->student_no";
         }
 
-        if (substr($request->mobile_no,1,4) != "+353"){
+        if (substr($request->mobile_no,0,4) != "+353"){
             $errors["c"] = "Mobile Number should start with +353 and 9 other integer characters";
         }
 
@@ -160,10 +159,10 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+        /*if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
             || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
-        }
+        }*/
 
         $uppercase = preg_match('@[A-Z]@', $request->password);
         $lowercase = preg_match('@[a-z]@', $request->password);
