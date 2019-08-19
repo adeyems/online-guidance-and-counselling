@@ -88,8 +88,6 @@ class RegisterController extends Controller
 
     public function createStudent(Request $request) {
 
-
-         $user = Student::create($request);
         $errors = [];
 
         if (substr($request->student_no, 0, 5) != "QE200" || strlen($request->student_no) != 9){
