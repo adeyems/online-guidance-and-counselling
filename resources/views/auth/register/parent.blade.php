@@ -70,8 +70,6 @@
                                 <div class="col-md-6">
                                     <input id="mobile-no" maxlength="13"  type="number" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" placeholder="+353" value="{{ old('email') }}" required autocomplete="mobile-no">
 
-
-
                                 </div>
                             </div>
 
