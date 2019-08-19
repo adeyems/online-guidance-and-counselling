@@ -32,12 +32,12 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Questionnaire Form Reference No
                                         <span class="">
-                                            {{ $caseForm["questionnaire_form_ref"]}}
+                                            {{ $caseForm["questionnaire_reference_no"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Appointment Booking Reference No
-                                        <span class="">{{ $caseForm["appointment_reference_no"] }}</span>
+                                        <span class="">{{ $caseForm["appointment_booking__reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No
