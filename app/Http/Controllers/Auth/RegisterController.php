@@ -130,7 +130,7 @@ class RegisterController extends Controller
                 $url = $home . '/verify/' . $user->verification_token;
                 MailController::sendVerifyMail($user->email, $home, $url);*/
                 $request->session()->flash('status', 'Your account was created successfully!');
-                return redirect('/login/parent');
+                return redirect('/login/student');
             } else {
                 return view('auth.register.student')->with('error', "Sorry, An error occurred")->with('old', $request);
             }
