@@ -147,9 +147,9 @@ class RegisterController extends Controller
             $errors["b"] = "A parent is associated with this student $request->student_no";
         }
 
-        if (substr($request->mobile_no,0,4) != "+353"){
+        /*if (substr($request->mobile_no,0,4) != "+353"){
             $errors["c"] = "Mobile Number should start with +353 and 9 other integer characters";
-        }
+        }*/
 
         $emailType = explode("@", $request->email)[1];
 
