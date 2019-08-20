@@ -36,7 +36,7 @@
                                 </div>
                             @endif
                             <div class="form-group row">
-                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Appointment Booking Ref Number') }}</label>
+                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('ARN') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="class" type="hidden" class="form-control @error('class') is-invalid @enderror" name="appointment_bookings_reference_no" value="{{$ref}}" readonly required autocomplete="class" autofocus>

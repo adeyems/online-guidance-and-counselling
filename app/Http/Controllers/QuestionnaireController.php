@@ -33,11 +33,12 @@ class QuestionnaireController extends Controller
             try {
                 SMSController::sendSMS(session()->get('user')[0]['mobile_no']);
             } catch (ConfigurationException $e) {
-                dd($e->getMessage());
+                return redirect("/home/$role")->with('status', 'Your questionnaire was submitted successfully!');
             } catch (TwilioException $e) {
-                dd($e->getMessage());
+                return redirect("/home/$role")->with('status', 'Your questionnaire was submitted successfully!');
             }
-            return redirect("/home/$role")->with('status', 'Your questionnaire was submitted successfully!');
+
+            return redirect("/home/$role")->with('status', 'Your questionnaire was submitted successfully!. You should get a confirmation SMS Shortly.');
         }
         else{
             $bookings = AppointmentBooking::getByStudentNo(session()->get('user')[0]['student_no']);

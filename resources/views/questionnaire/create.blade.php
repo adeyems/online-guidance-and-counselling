@@ -36,7 +36,7 @@
                                 </div>
                             @endif
                             <div class="form-group row">
-                                <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Questionnaire Form Ref Number') }}</label>
+                                <label for="" class="col-md-4 col-form-label text-md-right">{{ __('QRN') }}</label>
                                 <div class="col-md-6">
                                     <input id="class" type="hidden" class="form-control @error('class') is-invalid @enderror" name="questionnaire_form_ref" value="{{ $ref }}" required autocomplete="class" autofocus>
                                         <strong>{{ $ref }}</strong>
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('Booking Ref Number') }}</label>
+                                <label for="student_no" class="col-md-4 col-form-label text-md-right">{{ __('BRN') }}</label>
 
                                 <div class="col-md-6">
                                     <select id="class" type="text" class="form-control @error('class') is-invalid @enderror" name="appointment_reference_no" autofocus required>
