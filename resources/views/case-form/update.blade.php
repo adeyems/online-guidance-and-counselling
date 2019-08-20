@@ -37,7 +37,7 @@
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Appointment Book. Ref. No
-                                        <span class="">{{ $caseForm["appointment_bookings_reference"] }}</span>
+                                        <span class="">{{ $caseForm["appointment_bookings_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No

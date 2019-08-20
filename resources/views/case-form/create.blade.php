@@ -40,7 +40,7 @@
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Appointment Reference No.
+                                        Appointment Booking Reference No.
                                         <span class="">{{ $questionnaire["appointment_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
