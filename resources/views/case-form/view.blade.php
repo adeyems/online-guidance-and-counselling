@@ -24,7 +24,7 @@
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">SN</th>
-                                <th scope="col">Form Ref. No.</th>
+                                <th scope="col">CRN</th>
                                 <th scope="col">Student No</th>
                                 <th scope="col">Student Name and Surname</th>
                                 <th scope="col">View</th>

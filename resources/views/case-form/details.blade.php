@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Case Form Reference No
+                            CRN
                             <span class="">
                                 {{ $caseForm["case_reference_no"]}}
                             </span>
@@ -23,7 +23,7 @@
                             <span class="">{{ $caseForm["student_no"]}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Booking Reference No
+                            BRN
                             <span class="">{{ $caseForm["appointment_bookings_reference_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -31,7 +31,7 @@
                             <span class="">{{ $caseForm["employment_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Questionnaire Reference No
+                            QRN
                             <span class="">{{ $caseForm["questionnaire_ref"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">

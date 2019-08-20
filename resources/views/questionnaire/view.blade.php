@@ -15,7 +15,6 @@
                         <button type="button" class="close" data-dismiss="alert">×</button>
 
                         <strong class="text-center">{{ $message }}</strong>
-
                     </div>
                 @endif
                 <div class="card">

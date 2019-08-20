@@ -28,19 +28,19 @@
                             <div class="card">
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Student Case Form Reference No
+                                        CRN
                                         <span class="">
                                             {{ $ref }}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Questionnaire Form Reference No
+                                        QRN
                                         <span class="">
                                             {{ $questionnaire["questionnaire_form_ref"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Appointment Booking Reference No
+                                        ARN
                                         <span class="">{{ $questionnaire["appointment_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">

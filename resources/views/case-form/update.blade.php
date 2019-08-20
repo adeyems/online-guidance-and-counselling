@@ -24,20 +24,20 @@
                             <div class="card">
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Student Case Form Reference No
+                                        CRN
                                         <span class="">
                                             {{ $caseForm["case_reference_no"] }}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Questionnaire Form Reference No
+                                        QRN
                                         <span class="">
-                                            {{ $caseForm["questionnaire_reference_no"]}}
+                                            {{ $caseForm["questionnaire_form_ref"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        Appointment Booking Reference No
-                                        <span class="">{{ $caseForm["appointment_booking__reference_no"] }}</span>
+                                        ARN
+                                        <span class="">{{ $caseForm["appointment_reference_no"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No

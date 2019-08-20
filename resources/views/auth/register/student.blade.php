@@ -169,7 +169,7 @@
                                 <label for="class_teacher_name" class="col-md-4 col-form-label text-md-right">{{ __('Class Teacher Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="class-teacher-name" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class_teacher_name"  >
+                                    <select id="class-teacher-name" class="form-control @error('class_teacher_name') is-invalid @enderror" name="class_teacher_name" required >
                                         <option value="">Select Class Teacher Name</option>
                                         @foreach ($teachersNames as $teacherName)
                                             <option value="{{ $teacherName->name }} {{ $teacherName->surname }}">{{ $teacherName->name }} {{ $teacherName->surname }}</option>

@@ -90,13 +90,16 @@ class RegisterController extends Controller
 
         $errors = [];
 
+        if (Student::findByStudentNo($request->student_no)){
+            $errors["a"] = "Student No $request->student_no already exists";
+        }
         if (substr($request->student_no, 0, 5) != "QE200" || strlen($request->student_no) != 9){
             $errors["s"] = "The Student Number should be in the format - QE200 and four other numbers";
-}
+        }
 
-        /*if (substr($request->mobile_no,0,4) != "+353" || strlen($request->mobile_no != 13)){
+        if ((substr($request->mobile_no,0,4) != "+353") || (strlen($request->mobile_no) != 13)){
             $errors["c"] = "Mobile Number should start with +353 and 9 other integer characters";
-        }*/
+        }
 
         $emailType = explode("@", $request->email)[1];
 
@@ -104,20 +107,21 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-       /* if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
             || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
-            $errors["e"] = "An account is associated with this email address";
-        }*/
+            $errors["e"] = "An account is associated with the email address $request->email";
+        }
 
         $uppercase = preg_match('@[A-Z]@', $request->password);
         $lowercase = preg_match('@[a-z]@', $request->password);
         $number    = preg_match('@[0-9]@', $request->password);
+        $specialCharacters = preg_match('@[\W]@', $request->password);
 
-        if(!$uppercase || !$lowercase || !$number || strlen($request->password) < 8) {
-            $errors["f"] = "Password should contain at least an uppercase letter, a lower case letter and a minimum length of 8";
+        if(!$uppercase || !$lowercase || !$number || !$specialCharacters || strlen($request->password) < 8) {
+            $errors["f"] = "Password should contain at least an uppercase letter, a lower case letter, a number, a special character and a minimum length of 8";
         }
 
-        if ($request->password != $request->password_confirmation){
+        if ($request->password != $request->password_confirmation) {
             $errors["g"] = "Password and Confirm Password do not match";
         }
 
@@ -147,9 +151,10 @@ class RegisterController extends Controller
             $errors["b"] = "A parent is associated with this student $request->student_no";
         }
 
-        /*if (substr($request->mobile_no,0,4) != "+353"){
+        dd(substr($request->mobile_no, 0, 4));
+        if (substr($request->mobile_no,0,4) != "+353"){
             $errors["c"] = "Mobile Number should start with +353 and 9 other integer characters";
-        }*/
+        }
 
         $emailType = explode("@", $request->email)[1];
 
@@ -157,10 +162,10 @@ class RegisterController extends Controller
             $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
         }
 
-        /*if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
+        if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
             || Teacher::getByEmail($request->email) || Counsellor::getByEmail($request->email)){
             $errors["e"] = "An account is associated with this email address";
-        }*/
+        }
 
         $uppercase = preg_match('@[A-Z]@', $request->password);
         $lowercase = preg_match('@[a-z]@', $request->password);
