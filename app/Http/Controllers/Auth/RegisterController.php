@@ -104,7 +104,7 @@ class RegisterController extends Controller
         $emailType = explode("@", $request->email)[1];
 
         if ($emailType != "gmail.com" && $emailType != "yahoo.com" && $emailType != "outlook.com" && $emailType != "hotmail.co.uk"){
-            $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
+            $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.com";
         }
 
         if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
@@ -158,7 +158,7 @@ class RegisterController extends Controller
         $emailType = explode("@", $request->email)[1];
 
         if ($emailType != "gmail.com" && $emailType != "yahoo.com" && $emailType != "outlook.com" && $emailType != "hotmail.co.uk"){
-            $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.co.uk";
+            $errors["d"] = "Emails accepted are gmail.com, yahoo.com, outlook.com and hotmail.com";
         }
 
         if (StudentParent::getByEmail($request->email)  || Student::getByEmail($request->email)
@@ -184,9 +184,9 @@ class RegisterController extends Controller
         }else {
             $user = StudentParent::create($request);
             if ($user) {
-                /*$home = 'http://' . $_SERVER['HTTP_HOST'];
+                $home = 'http://' . $_SERVER['HTTP_HOST'];
                 $url = $home . '/verify/' . $user->verification_token;
-                MailController::sendVerifyMail($user->email, $home, $url);*/
+                MailController::sendVerifyMail($user->email, $home, $url);
                 $request->session()->flash('status', 'Your account was created successfully!');
                 return redirect('/login/parent');
             }

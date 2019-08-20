@@ -68,7 +68,7 @@
                                 <label for="mobile_no" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="mobile-no" maxlength="13"  type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" placeholder="+353" value="{{ old('email') }}" required autocomplete="mobile-no">
+                                    <input id="mobile-no" maxlength="13" minlength="13" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" placeholder="+353" value="{{ old('email') }}" required autocomplete="mobile-no">
 
                                 </div>
                             </div>
@@ -85,8 +85,6 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email (UserName)') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-
                                 </div>
                             </div>
 
