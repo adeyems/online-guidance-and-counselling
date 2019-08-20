@@ -32,12 +32,12 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         QRN
                                         <span class="">
-                                            {{ $caseForm["questionnaire_form_ref"]}}
+                                            {{ $caseForm["questionnaire_ref"]}}
                                         </span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         ARN
-                                        <span class="">{{ $caseForm["appointment_reference_no"] }}</span>
+                                        <span class="">{{ $caseForm["appointment_bookings_reference"] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         Employment No
