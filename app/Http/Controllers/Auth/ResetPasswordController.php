@@ -54,6 +54,20 @@ class ResetPasswordController extends Controller
     }
 
     public function updatePassword(Request $request){
+        $uppercase = preg_match('@[A-Z]@', $request->password);
+        $lowercase = preg_match('@[a-z]@', $request->password);
+        $number    = preg_match('@[0-9]@', $request->password);
+        $specialCharacters = preg_match('@[\W]@', $request->password);
+
+        if(!$uppercase || !$lowercase || !$number || !$specialCharacters || strlen($request->password) < 8) {
+            return back()->with('error', "Password should contain at least an uppercase letter, a lower case letter,
+             a number, a special character and a minimum length of 8");
+        }
+
+        if ($request->password != $request->password_confirmation){
+            return back()->with('error', "Password and Confirm Password do not match");
+        }
+
         $user = session()->get('userObj')[0];
         if ($this->getUserType($user->userType)->updatePassword($user, $request->password)) {
             return redirect("/login/$user->userType")->with('status', "Password Changed Successfully. You can now log in to your account");

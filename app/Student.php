@@ -77,7 +77,6 @@ class Student extends Model
             $user->userType = 'student';
             return $user;
         }
-
         return null;
     }
 

@@ -15,6 +15,17 @@
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
+                        @if ($message = Session::get('error'))
+
+                            <div class="alert alert-danger alert-block text-center">
+
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                                <strong class="text-center">{{ $message }}</strong>
+
+                            </div>
+                        @endif
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 

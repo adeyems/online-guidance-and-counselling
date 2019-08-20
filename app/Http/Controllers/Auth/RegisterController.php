@@ -130,13 +130,10 @@ class RegisterController extends Controller
         } else {
             $user = Student::create($request);
             if ($user) {
-                /*$home = 'http://' . $_SERVER['HTTP_HOST'];
-                $url = $home . '/verify/' . $user->verification_token;
-                MailController::sendVerifyMail($user->email, $home, $url);*/
                 $request->session()->flash('status', 'Your account was created successfully!');
                 return redirect('/login/student');
             } else {
-                return view('auth.register.student')->with('error', "Sorry, An error occurred")->with('old', $request);
+                return view('auth.register.student')->with('error', "Sorry, An error occurred");
             }
         }
     }
@@ -192,7 +189,7 @@ class RegisterController extends Controller
             }
 
         else{
-            return view('auth.register.parent')->with('error',  "Sorry, An error occurred")->with('old', $request);
+            return view('auth.register.parent')->with('error',  "Sorry, An error occurred");
         }
     }
     }
