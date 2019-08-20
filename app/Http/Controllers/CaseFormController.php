@@ -18,7 +18,7 @@ class CaseFormController extends Controller
         $questionnaire = Questionnaire::getById($id);
         $questionnaire["student"] = Student::getByStudentNo($questionnaire["student_no"]);
 
-        return view('case-form.create')->with("questionnaire", $questionnaire)->with('ref', "CASE" . time());
+        return view('case-form.create')->with("questionnaire", $questionnaire)->with('ref', "CRN" . time());
     }
 
     public function create(Request $request){
@@ -70,7 +70,7 @@ class CaseFormController extends Controller
         $caseForm = CaseForm::getById($id);
         $caseForm["student"] = Student::getByStudentNo($caseForm["student_no"]);
 
-        return view('case-form.update')->with("caseForm", $caseForm)->with('ref', "CASE" . time());
+        return view('case-form.update')->with("caseForm", $caseForm)->with('ref', "CRN" . time());
 
     }
 

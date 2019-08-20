@@ -19,7 +19,7 @@ class QuestionnaireController extends Controller
         }
         $bookings = AppointmentBooking::getByStudentNo(session()->get('user')[0]['student_no']);
         return view('questionnaire.create',
-            [ 'student_no' => session()->get('user')[0]['student_no'], "ref" => "QE" . time(), "bookings" => $bookings ]);
+            [ 'student_no' => session()->get('user')[0]['student_no'], "ref" => "QRN" . time(), "bookings" => $bookings ]);
     }
 
     public function create(Request $request){
@@ -45,7 +45,7 @@ class QuestionnaireController extends Controller
             return view('questionnaire.create')->with('error',  "Sorry, An error occurred while creating your questionnaire.")
                 ->with( 'student_no', session()->get('user')[0]['student_no'] )
                 ->with("bookings,", $bookings)
-                ->with("ref", "QE" . time());
+                ->with("ref", "QRN" . time());
         }
     }
 

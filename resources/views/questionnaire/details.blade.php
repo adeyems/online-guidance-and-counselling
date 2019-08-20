@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            QRN
+                            Questionnaire Ref No.
                             <span class="">
                                 {{ $questionnaire["questionnaire_form_ref"]}}
                             </span>
@@ -23,7 +23,7 @@
                             <span class="">{{ $questionnaire["student_no"]}}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            BRN
+                            Booking Ref. No.
                             <span class="">{{ $questionnaire["appointment_reference_no"] }}</span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
