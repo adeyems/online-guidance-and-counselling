@@ -80,4 +80,3 @@ Route::post('/caseform/update}', 'CaseFormController@updateCase')->name('casefor
 Route::get('/sms', 'SMSController@sendSMS');
 
 Route::get('/mail', 'MailController@send');
-

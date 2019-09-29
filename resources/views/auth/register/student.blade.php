@@ -51,7 +51,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Student Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="student-no" type="text" class="form-control @error('name') is-invalid @enderror" name="student_no" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="student-no" type="text" class="form-control @error('name') is-invalid @enderror" name="student_no" value="{{ old('student-no') }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">

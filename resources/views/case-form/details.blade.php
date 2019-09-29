@@ -36,7 +36,7 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Case Details
-                            <span class="text-center"><p>{{ $caseForm["case_details"] }}</p></span>
+                            <span class="text-center"><p class="text-justify">{{ $caseForm["case_details"] }}</p></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             Date of Submission

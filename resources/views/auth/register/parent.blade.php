@@ -58,7 +58,7 @@
                                 <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                    <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname"  value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
 
                                 </div>
@@ -68,7 +68,7 @@
                                 <label for="mobile_no" class="col-md-4 col-form-label text-md-right">{{ __('Mobile Number') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="mobile-no" maxlength="13" minlength="13" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="+353" required autocomplete="mobile-no">
+                                    <input id="mobile-no" maxlength="13" minlength="13" type="tel" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('mobile') ?? '+353'}}" required autocomplete="mobile-no">
 
                                 </div>
                             </div>
@@ -77,14 +77,14 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Home Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea  class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address"> {{ old('address') }}</textarea>
+                                    <textarea  class="form-control @error('address') is-invalid @enderror" name="address" required autocomplete="address"> {{ old('address') }} </textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
 
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email (UserName)') }}</label>
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  value="{{ old('email') }}" required autocomplete="email">
                                 </div>
                             </div>
 
